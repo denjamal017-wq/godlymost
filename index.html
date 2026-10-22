@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GODLY MOST — أرشيف موست الدراسي</title>
+<meta name="description" content="أرشيف دراسي مفتوح — محاضرات وملخصات منظمة لقسم الأمن السيبراني. نظري وعملي، مرتّب ومختصر، بلا حشو.">
+<meta property="og:title" content="GODLY MOST — أرشيف موست الدراسي">
+<meta property="og:description" content="محاضرات وملخصات منظمة لقسم الأمن السيبراني — نظري + مختبر.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <a class="nav__logo mono" href="#top" dir="ltr">GODLY&nbsp;MOST<sup>®</sup></a>
+  <nav class="nav__links">
+    <a href="#subjects">المواد</a>
+    <a href="#soon">قريباً</a>
+    <a href="#method">المنهجية</a>
+    <a href="#about">عن موست</a>
+  </nav>
+  <a class="nav__cta mono" href="https://github.com/denjamal017-wq/godlymost" target="_blank" rel="noopener" dir="ltr">GITHUB&nbsp;↗</a>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__meta mono">
+      <span>أرشيف دراسي مفتوح</span>
+      <span dir="ltr">EST. 2026 — BAGHDAD, IRQ</span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="line reveal">كودلي</span>
+      <span class="line line--outline reveal" dir="ltr">MOST<sup>®</sup></span>
+    </h1>
+
+    <p class="hero__sub reveal">
+      محاضرات وملخصات <b>قسم الأمن السيبراني</b> — نظري ومختبر،
+      مرتّبة ومختصرة، وبلا حشو زايد.
+      <span class="mono hero__sub-en" dir="ltr">OPEN STUDY ARCHIVE — THEORY + LAB NOTES</span>
+    </p>
+
+    <div class="hero__cta reveal">
+      <a class="btn btn--solid" href="#subjects">تصفّح المواد ↓</a>
+      <a class="btn" href="https://github.com/denjamal017-wq/godlymost" target="_blank" rel="noopener">المصدر على GitHub ↗</a>
+    </div>
+
+    <div class="hero__foot mono">
+      <span>SCROLL ↓</span>
+      <span dir="ltr">33.31°N — 44.36°E</span>
+      <span>المرحلة الثانية · أمن سيبراني</span>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" dir="ltr" aria-hidden="true">
+    <div class="marquee__track">
+      <span>أسس الإلكترونيك ✦ هياكل البيانات ✦ البرمجة كائنية التوجه ✦ الدايود وزينر ✦ الخوارزميات ✦ مقوم نصف الموجة ✦ مراجعة بايثون ✦&nbsp;</span>
+      <span>أسس الإلكترونيك ✦ هياكل البيانات ✦ البرمجة كائنية التوجه ✦ الدايود وزينر ✦ الخوارزميات ✦ مقوم نصف الموجة ✦ مراجعة بايثون ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="stats">
+    <div class="stat reveal"><span class="stat__num mono" data-count="2">00</span><span class="stat__label">مواد مكتملة</span></div>
+    <div class="stat reveal"><span class="stat__num mono" data-count="11">00</span><span class="stat__label">محاضرة جاهزة</span></div>
+    <div class="stat reveal"><span class="stat__num mono" data-count="8">00</span><span class="stat__label">مواد بالخطة</span></div>
+    <div class="stat reveal"><span class="stat__num mono" data-count="30" data-suffix="+">00</span><span class="stat__label">سؤال امتحان متوقع</span></div>
+  </section>
+
+  <!-- ===== SUBJECTS ===== -->
+  <section class="section" id="subjects">
+    <div class="section__head reveal">
+      <span class="mono section__index" dir="ltr">01 /</span>
+      <h2 class="section__title">المواد — <span class="mono" dir="ltr">THE ARCHIVE</span></h2>
+      <p class="section__hint">اضغط على المادة حتى تنفتح قائمة المحاضرات</p>
+    </div>
+    <div id="subjects-list" class="subjects"><!-- JS --></div>
+  </section>
+
+  <!-- ===== SOON ===== -->
+  <section class="section" id="soon">
+    <div class="section__head reveal">
+      <span class="mono section__index" dir="ltr">02 /</span>
+      <h2 class="section__title">قريباً — <span class="mono" dir="ltr">IN THE PIPELINE</span></h2>
+      <p class="section__hint">بقية مواد المرحلة قيد التحضير بنفس المنهجية</p>
+    </div>
+    <div id="soon-grid" class="soon"><!-- JS --></div>
+  </section>
+
+  <!-- ===== METHOD ===== -->
+  <section class="section section--black" id="method">
+    <div class="section__head reveal">
+      <span class="mono section__index" dir="ltr">03 /</span>
+      <h2 class="section__title">المنهجية — <span class="mono" dir="ltr">HOW IT'S BUILT</span></h2>
+      <p class="section__hint">كل محاضرة تمر بنفس القالب — حتى تعرف دائماً وين تلگي الشي</p>
+    </div>
+    <div class="method">
+      <article class="method__col reveal">
+        <span class="mono method__num" dir="ltr">/01</span>
+        <h3>شرح ثلاثي المستويات</h3>
+        <p>كل مفهوم ينشرح <b>🍼 بأبسط صورة</b>، بعده <b>🏠 مثال من الحياة</b>، وبالنهاية <b>📐 التعريف الرسمي</b> اللي تكتبه بالامتحان.</p>
+      </article>
+      <article class="method__col reveal">
+        <span class="mono method__num" dir="ltr">/02</span>
+        <h3>جداول وخرائط ذهنية</h3>
+        <p>كل مقارنة بجدول واضح، وكل محاضرة تخلص بخريطة ذهنية تلخصها — المراجعة قبل الامتحان تصير بدقائق.</p>
+      </article>
+      <article class="method__col reveal">
+        <span class="mono method__num" dir="ltr">/03</span>
+        <h3>أسئلة امتحان متوقعة</h3>
+        <p>أسئلة بصيغة الامتحان مع أجوبتها النموذجية — تختبر نفسك أول، وبعدين تفتح الجواب وتقارن.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="section__head reveal">
+      <span class="mono section__index" dir="ltr">04 /</span>
+      <h2 class="section__title">عن موست — <span class="mono" dir="ltr">ABOUT</span></h2>
+    </div>
+    <div class="about">
+      <div class="about__mark mono" aria-hidden="true">M.</div>
+      <div class="about__body reveal">
+        <p class="about__lead">أنا <b>موست</b> — طالب أمن سيبراني بالمرحلة الثانية، الجامعة العراقية، كلية الهندسة التقنية.</p>
+        <p>هالموقع هو أرشيفي الدراسي المفتوح: أرتّب بيه محاضراتي وملخصاتي بنفس الطريقة اللي أتمنى ألگى بيها أي محتوى — <b>واضح، منظم، ومختصر</b>. إذا أنت بنفس القسم، خذ اللي يفيدك وبالتوفيق بالامتحان. 🤝</p>
+        <div class="about__links mono">
+          <a href="https://github.com/denjamal017-wq" target="_blank" rel="noopener" dir="ltr">GITHUB ↗</a>
+          <span dir="ltr">@iig0d</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__giant mono" dir="ltr" aria-hidden="true">GODLY&nbsp;MOST<sup>®</sup></div>
+  <div class="footer__bar mono">
+    <span>© <span id="year">2026</span> GODLY MOST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+    <span dir="ltr">BGD <span id="clock">--:--:--</span></span>
+    <span class="footer__bw" dir="ltr">BLACK &amp; WHITE — ON PURPOSE</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
