@@ -1,5 +1,5 @@
 /* ============================================================
-   GODLY MOST — app.js
+   GODLY MUST — app.js
    data-driven subjects · accordion · reveals · counters · clock
    ============================================================ */
 
@@ -15,12 +15,12 @@ const SUBJECTS = [
     teach: "نظري: د. أكرم محمد حاتم · مختبر: م. زهراء عبد المهدي + م. عقيل علي",
     tags: ["Semiconductors", "Diode", "Zener", "Rectifiers"],
     lectures: [
-      { code: "نظري 01", title: "أشباه الموصلات ومستويات الطاقة", en: "Semiconductors & Energy Levels", type: "نظري" },
-      { code: "نظري 02", title: "بناء الدايود والتحيز ومنطقة زينر", en: "Diode, Biasing & Zener Region", type: "نظري" },
-      { code: "نظري 03", title: "شوكلي وتحليل خط الحمل", en: "Shockley & Load-Line Analysis", type: "نظري" },
-      { code: "عملي 01", title: "خصائص الدايود", en: "Diode Characteristics", type: "مختبر" },
-      { code: "عملي 02", title: "خصائص دايود زينر", en: "Zener Diode Characteristics", type: "مختبر" },
-      { code: "عملي 03", title: "مقوم نصف الموجة", en: "Half-Wave Rectifier", type: "مختبر" },
+      { slug: "el-t1", code: "نظري 01", title: "أشباه الموصلات ومستويات الطاقة", en: "Semiconductors & Energy Levels", type: "نظري" },
+      { slug: "el-t2", code: "نظري 02", title: "بناء الدايود والتحيز ومنطقة زينر", en: "Diode, Biasing & Zener Region", type: "نظري" },
+      { slug: "el-t3", code: "نظري 03", title: "شوكلي وتحليل خط الحمل", en: "Shockley & Load-Line Analysis", type: "نظري" },
+      { slug: "el-p1", code: "عملي 01", title: "خصائص الدايود", en: "Diode Characteristics", type: "مختبر" },
+      { slug: "el-p2", code: "عملي 02", title: "خصائص دايود زينر", en: "Zener Diode Characteristics", type: "مختبر" },
+      { slug: "el-p3", code: "عملي 03", title: "مقوم نصف الموجة", en: "Half-Wave Rectifier", type: "مختبر" },
     ],
   },
   {
@@ -33,22 +33,30 @@ const SUBJECTS = [
     teach: "نظري + مختبر: م.م عباس كامل + ب. صبا صباح",
     tags: ["Algorithms", "Python", "OOP", "Java"],
     lectures: [
-      { code: "نظري 01", title: "مدخل إلى هياكل البيانات والخوارزميات", en: "Overview", type: "نظري" },
-      { code: "نظري 02", title: "الخوارزميات: الخصائص والفئات والتصميم", en: "Algorithmics", type: "نظري" },
-      { code: "نظري 03", title: "مراجعة بايثون", en: "Python Review", type: "نظري" },
-      { code: "عملي 01", title: "مدخل إلى البرمجة كائنية التوجه", en: "OOP Lab 1", type: "مختبر" },
-      { code: "عملي 02", title: "البنّاءات ومعدّلات الوصول", en: "Constructors & Access Modifiers", type: "مختبر" },
+      { slug: "ds-t1", code: "نظري 01", title: "مدخل إلى هياكل البيانات والخوارزميات", en: "Overview", type: "نظري" },
+      { slug: "ds-t2", code: "نظري 02", title: "الخوارزميات: الخصائص والفئات والتصميم", en: "Algorithmics", type: "نظري" },
+      { slug: "ds-t3", code: "نظري 03", title: "مراجعة بايثون", en: "Python Review", type: "نظري" },
+      { slug: "ds-p1", code: "عملي 01", title: "مدخل إلى البرمجة كائنية التوجه", en: "OOP Lab 1", type: "مختبر" },
+      { slug: "ds-p2", code: "عملي 02", title: "البنّاءات ومعدّلات الوصول", en: "Constructors & Access Modifiers", type: "مختبر" },
     ],
   },
-];
-
-const SOON = [
-  { icon: "⌨️", title: "أساسيات البرمجة", en: "PROGRAMMING BASICS", pri: "أولوية ⭐⭐⭐⭐⭐" },
-  { icon: "💻", title: "نظم المعلومات", en: "INFORMATION SYSTEMS", pri: "أولوية ⭐⭐⭐⭐⭐" },
-  { icon: "🔌", title: "مبادئ الهندسة الكهربائية", en: "ELECTRICAL ENGINEERING", pri: "أولوية ⭐⭐⭐⭐" },
-  { icon: "🔢", title: "الرياضيات", en: "MATHEMATICS", pri: "أولوية ⭐⭐⭐⭐" },
-  { icon: "📐", title: "الرسم الهندسي", en: "ENGINEERING DRAWING", pri: "أولوية ⭐⭐⭐" },
-  { icon: "🏛️", title: "الديمقراطية وحقوق الإنسان", en: "DEMOCRACY & HUMAN RIGHTS", pri: "مادة إنسانية" },
+  {
+    num: "03",
+    title: "تركيب ومعمارية الحاسوب",
+    en: "COMPUTER ORGANIZATION & ARCHITECTURE",
+    status: "مكتملة ✅",
+    count: "٥ محاضرات",
+    desc: "شلون الحاسوب يخزن الأرقام فعلياً — أنظمة العد، المكمّلات، الفاصلة العائمة IEEE 754 — وسجلات معالج 8086 ومعماريته الداخلية، وياها مختبر المعمارية وأنواع الذواكر.",
+    teach: "نظري: م. رسل العبيدي",
+    tags: ["Number Systems", "IEEE 754", "8086", "Memory"],
+    lectures: [
+      { slug: "ca-t1", code: "نظري 01", title: "أنظمة العد والأعداد الموقعة", en: "Numbering Systems & Signed Numbers", type: "نظري" },
+      { slug: "ca-t2", code: "نظري 02", title: "الفاصلة العائمة ومعمارية 8086", en: "Floating Point & 8086 Architecture", type: "نظري" },
+      { slug: "ca-t3", code: "نظري 03", title: "مرجع 8086/8088: السجلات وEU/BIU", en: "8086/8088 Deep Reference", type: "نظري" },
+      { slug: "ca-p1", code: "عملي 01", title: "المعمارية مقابل التنظيم", en: "Architecture vs Organization", type: "مختبر" },
+      { slug: "ca-p2", code: "عملي 02", title: "أنواع الذواكر", en: "Types of Memories", type: "مختبر" },
+    ],
+  },
 ];
 
 /* ---------- رسم المواد ---------- */
@@ -61,14 +69,14 @@ SUBJECTS.forEach((s, i) => {
   const lectures = s.lectures
     .map(
       (l) => `
-      <li class="lec">
+      <li><a class="lec" href="lectures/${l.slug}.html">
         <span class="lec__code">${l.code}</span>
         <span>
           <span class="lec__title">${l.title}</span>
           <span class="lec__en" dir="ltr">${l.en}</span>
         </span>
         <span class="lec__type ${l.type === "مختبر" ? "lec__type--lab" : ""}">${l.type}</span>
-      </li>`
+      </a></li>`
     )
     .join("");
 
@@ -100,6 +108,7 @@ SUBJECTS.forEach((s, i) => {
 
 /* أكورديون — يفتح واحد ويسد الباقي */
 subjectsList.addEventListener("click", (e) => {
+  if (e.target.closest("a.lec")) return; /* روابط المحاضرات تشتغل طبيعي */
   const head = e.target.closest(".subject__head");
   if (!head) return;
   const current = head.parentElement;
@@ -112,19 +121,6 @@ subjectsList.addEventListener("click", (e) => {
     current.classList.add("open");
     head.setAttribute("aria-expanded", "true");
   }
-});
-
-/* ---------- رسم "قريباً" ---------- */
-const soonGrid = document.getElementById("soon-grid");
-SOON.forEach((s) => {
-  const card = document.createElement("div");
-  card.className = "soon__card reveal";
-  card.innerHTML = `
-    <span class="soon__icon">${s.icon}</span>
-    <span class="soon__title">${s.title}</span>
-    <span class="soon__en" dir="ltr">${s.en}</span>
-    <span class="soon__state">${s.pri} · قيد التحضير ⏳</span>`;
-  soonGrid.appendChild(card);
 });
 
 /* ---------- الظهور عند التمرير ---------- */
