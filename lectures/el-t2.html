@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 02 — بناء الدايود والتحيز ومنطقة زينر | GODLY MUST</title>
+<meta name="description" content="بناء الدايود والتحيز ومنطقة زينر — Diode, Biasing & Zener Region · أسس الإلكترونيك">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">ELECTRONICS FUNDAMENTALS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 02</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">بناء الدايود والتحيز ومنطقة زينر</h1>
+    <div class="doc__en mono" dir="ltr">Diode, Biasing & Zener Region</div>
+    <div class="doc__teach">👤 د. أكرم محمد حاتم · أسس الإلكترونيك</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📗</span><div class="callout__body"><p class="para"><b>المحاضرة الثانية — نظري</b><br>Semiconductor Diode Construction, Biasing Characteristics, Zener Region<br><i>د. أكرم محمد حاتم — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>تطبيقات الثنائيات (Diodes)</li><li>ثنائي الوصلة PN وحالة الاتزان</li><li>التحيز (Biasing) وحالاته الثلاث</li><li>التحيز الأمامي (Forward Bias)</li><li>التحيز العكسي (Reverse Bias)</li><li>منطقة زينر (Zener Region) وآلية عملها</li><li>منحنى الخصائص I-V: زينر vs الانهيار الإنهيماري</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ تطبيقات الثنائيات</h3>
+<p class="para">🌱 الثنائيات من أبسط أجهزة أشباه الموصلات وأكثرها فائدة. تطبيقاتها المذكورة في المحاضرة:</p>
+<ul class="lst"><li><b>ثنائيات التقويم (Rectifier Diodes):</b> مكوّن حيوي في وحدات التغذية — تحويل جهد التيار المتردد AC القادم من الشبكة إلى تيار مستمر DC</li><li><b>ثنائيات زينر (Zener Diodes):</b> تثبيت الجهد ومنع التغيرات غير المرغوبة في مصادر DC، وتوفير جهود مرجعية دقيقة للدوائر</li><li><b>حماية القطبية المعكوسة:</b> منع أضرار جسيمة بالمعدات العاملة بالبطاريات عند توصيلها بقطبية خاطئة</li><li><b>ثنائيات الإشارة (Signal Diodes):</b> استخلاص إشارات الصوت والصورة من إشارات التردد الراديوي (كشف التضمين Demodulation)، وتشكيل وتعديل أشكال الموجات (القص Clipping، الحد Limiting، استعادة مستوى DC)</li><li><b>الحماية داخل الدوائر المتكاملة:</b> تُدمج في الدوائر الرقمية لحمايتها من ارتفاعات الجهد الكبيرة (النبضات المفاجئة)</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ ثنائي الوصلة PN — حالة الاتزان (تحيز صفري)</h3>
+<p class="para">🌱 يتشكل ثنائي الوصلة عند دمج شبه موصل p-Type مع شبه موصل n-Type ضمن شبكة بلورية واحدة ← ينشأ <b>جهد حاجز (Potential Barrier)</b> عند الوصلة.<br>🌿 عند الدمج تحدث ثلاث عمليات تلقائياً:<br><b>أولاً — عملية الانتشار (Diffusion):</b></p>
+<ul class="lst"><li>منطقة N: تحتوي تركيزاً عالياً من الإلكترونات الحرة (حاملات الأغلبية)</li><li>منطقة P: تحتوي تركيزاً عالياً من الفجوات (حالات إلكترونية شاغرة تعمل كحاملات شحنة موجبة)</li><li>بسبب التدرج الحاد في التركيز عبر الحد الفاصل ← تنتشر الإلكترونات الحرة القريبة من الوصلة من جانب N إلى جانب P لتلتحم مع الفجوات</li></ul>
+<p class="para"><b>ثانياً — تشكيل منطقة الاستنفاذ (Depletion Region):</b></p>
+<ul class="lst"><li>عندما يغادر إلكترون حر جانب N ← يترك خلفه <b>أيوناً موجباً ثابتاً مانحاً</b> (ذرة فقدت إلكتروناً)</li><li>عندما يعيد الإلكترون الارتباط بفجوة في جانب P ← يتشكل <b>أيون سالب ثابت قابل</b> (ذرة اكتسبت إلكتروناً)</li><li>تتراكم هذه الأيونات غير المتحركة على طول الحد الفاصل ← <b>منطقة خالية من حاملات الشحنة المتحركة = منطقة الاستنفاذ</b></li></ul>
+<figure class="fig"><img src="assets/l2-depletion.png" alt="تشكل منطقة الاستنفاذ وجهد الحاجز عند وصلة PN — من الملزمة" loading="lazy"><figcaption>تشكل منطقة الاستنفاذ وجهد الحاجز عند وصلة PN — من الملزمة</figcaption></figure>
+<p class="para"><b>ثالثاً — نشوء جهد الحاجز (Barrier Potential):</b></p>
+<ul class="lst"><li>الأيونات الثابتة المتراكمة تولّد <b>مجالاً كهربائياً داخلياً</b> يتجه من الأيونات الموجبة (جانب N) إلى الأيونات السالبة (جانب P)</li><li>هذا المجال الداخلي يقاوم استمرار انتشار الإلكترونات حتى الوصول إلى <b>اتزان ديناميكي</b></li><li>فرق الجهد الناتج عبر منطقة الاستنفاذ = <b>جهد الحاجز </b><span class="math-tex">V_\gamma</span> ≈ <b>0.7 فولت للسيليكون</b> و <b>0.3 فولت للجرمانيوم</b></li></ul>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ التحيز (Biasing) وحالاته الثلاث</h3>
+<p class="para">🌱 <b>التعريف:</b> التحيز في الإلكترونيات هو تطبيق جهد مستمر DC خارجي عبر أطراف عنصر شبه موصل (كالدايود) لتهيئة ظروف تشغيل محددة والتحكم في تدفق التيار الكهربائي عبره.<br>🌿 للتغلب على جهد الحاجز والسماح بمرور التيار، يُوصَل مصدر DC خارجي (بطارية) بالطرفين P و N — ويختلف سلوك الدايود باختلاف طريقة التوصيل. الحالات الرئيسية الثلاث:</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>الحالة</b></th><th><b>الشرط</b></th></tr>
+<tr><td>A. عدم التحيز (No Bias)</td><td><span class="math-tex">V_D = 0</span> V</td></tr>
+<tr><td>B. التحيز الأمامي (Forward Bias)</td><td><span class="math-tex">V_D &gt; 0</span> V</td></tr>
+<tr><td>C. التحيز العكسي (Reverse Bias)</td><td><span class="math-tex">V_D &lt; 0</span> V</td></tr>
+</table></div>
+<div class="callout"><span class="callout__icon">⚠️</span><div class="callout__body"><p class="para">ملاحظة من الملزمة: <b>مخططات حالات التحيز مطلوبة ومهمة</b> — راجعها في الملف الأصلي</p></div></div>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ التحيز الأمامي (Forward Bias)</h3>
+<p class="para">🌱 الموجب إلى P والسالب إلى N ← الدايود يوصّل.<br>🌿 <b>التوصيل وسريان التيار:</b></p>
+<ul class="lst"><li>عندما يكون الجهد المطبق أدنى من جهد الحاجز (<span class="math-tex">V_D &lt; V_\gamma</span>) ← التيار مهمل</li><li>بمجرد تجاوز <span class="math-tex">V_\gamma</span> ‏(0.7V للسيليكون) ← حاملات الأغلبية تكتسب طاقة كافية لعبور الوصلة</li><li>يسري <b>تيار أمامي أُسّي (</b><span class="math-tex">I_D</span><b>)</b> عبر الدايود، وتنخفض المقاومة الديناميكية (<span class="math-tex">r_d</span>) لقيمة ضئيلة جداً</li><li>منطقة الاستنفاذ <b>تضيق وتنهار</b></li></ul>
+<p class="para">🌳 <b>النتيجة:</b> الدايود يعمل فعلياً كـ<b>مفتاح مغلق (موصل)</b></p>
+<figure class="fig"><img src="assets/l2-forward.png" alt="التحيز الأمامي — تضيُّق منطقة الاستنفاذ وسريان تيار الأغلبية — من الملزمة" loading="lazy"><figcaption>التحيز الأمامي — تضيُّق منطقة الاستنفاذ وسريان تيار الأغلبية — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ التحيز العكسي (Reverse Bias)</h3>
+<p class="para">🌱 الموجب إلى N والسالب إلى P ← الدايود يحجب.<br>🌿 <b>التوصيل وسريان التيار:</b></p>
+<ul class="lst"><li>تيار حاملات الأغلبية <b>محجوب تماماً</b> عبر الوصلة</li><li>حاملات الأقلية المتولدة حرارياً تنتج تيار تسرب ضئيلاً يُعرف بـ<b>تيار التشبع العكسي (</b><span class="math-tex">I_S</span><b>)</b> — يقاس بالنانوأمبير (nA) في ثنائيات السيليكون</li><li>الدايود يبدي <b>مقاومة عكسية (</b><span class="math-tex">R_R</span><b>) عالية للغاية</b></li></ul>
+<p class="para">🌳 <b>النتيجة:</b> الدايود يعمل فعلياً كـ<b>مفتاح مفتوح (عازل)</b></p>
+<figure class="fig"><img src="assets/l2-reverse.png" alt="التحيز العكسي — اتساع منطقة الاستنفاذ وحجب التيار — من الملزمة" loading="lazy"><figcaption>التحيز العكسي — اتساع منطقة الاستنفاذ وحجب التيار — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ منطقة زينر (Zener Region)</h3>
+<p class="para">🌱 الدايود العادي يسمح بمرور التيار في التحيز الأمامي فقط ويبدي مقاومة صغيرة له؛ وهو يعمل كـ<b>صمام أحادي الاتجاه</b>: يمرّر أمامياً ويمنع عكسياً تماماً.<br>🌿 <b>منطقة زينر</b> هي حالة <b>متحكم فيها</b> من التوصيل الكهربائي العكسي — دايود زينر مصمم خصيصاً يمرّر التيار بأمان في التحيز العكسي <b>دون أن يتلف</b>.<br><b>رمز دايود زينر:</b> مشابه لرمز ثنائي الوصلة العادي (طرفان: كاثود وأنود) لكن بانحناءات عند أطراف الخط العمودي.<br>🌳 <b>آلية عمل منطقة زينر:</b></p>
+<ol class="lst lst--num"><li><b>التطعيم الكثيف (Heavy Doping):</b> تُصنَّع ثنائيات زينر بإضافة تركيز عالٍ من الشوائب إلى مادة السيليكون</li><li><b>منطقة استنفاذ ضيقة:</b> التطعيم الكثيف يكوّن منطقة استنفاذ رقيقة للغاية عند وصلة PN</li><li><b>التأين بالمجال (Field Ionization — كسر الروابط):</b> عندما يصل الجهد العكسي إلى <span class="math-tex">V_Z</span> (عادةً أقل من 5V) ← ينشأ مجال كهربائي شديد عبر الطبقة الضيقة ← يكسر الروابط التساهمية مباشرة ← تحرير أعداد هائلة من أزواج إلكترون-فجوة في آن واحد لنقل التيار العكسي</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ منحنى خصائص الدايود I-V</h3>
+<figure class="fig"><img src="assets/l2-iv-curve.png" alt="منحنى خصائص الجهد والتيار I-V للدايود — من الملزمة" loading="lazy"><figcaption>منحنى خصائص الجهد والتيار I-V للدايود — من الملزمة</figcaption></figure>
+<p class="para">يوضح المنحنى:</p>
+<ul class="lst"><li><b>توصيل عالٍ في التحيز الأمامي</b> بعد تجاوز جهد العتبة</li><li><b>حجب التيار في التحيز العكسي</b> حتى الوصول لنقطة الانهيار (الركبة Knee)</li><li>الفرق الجوهري بين <b>انهيار زينر</b> (يحدث عند جهود عكسية أقل بسبب التطعيم الكثيف) و<b>الانهيار الإنهيماري Avalanche</b> (يحدث عند جهود عكسية أعلى بسبب تسارع حاملات الشحنة وتأين التصادم)</li></ul>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ التحيز الأمامي vs التحيز العكسي</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>تحيز أمامي (</b><span class="math-tex">V_D &gt; 0</span><b>)</b></th><th><b>تحيز عكسي (</b><span class="math-tex">V_D &lt; 0</span><b>)</b></th></tr>
+<tr><td>توصيل البطارية</td><td>الموجب ← P والسالب ← N</td><td>الموجب ← N والسالب ← P</td></tr>
+<tr><td>تيار الأغلبية</td><td>يسري بعد تجاوز <span class="math-tex">V_\gamma</span></td><td>محجوب تماماً</td></tr>
+<tr><td>التيار الفعلي</td><td>أسّي <span class="math-tex">I_D</span> كبير</td><td>تسرب ضئيل <span class="math-tex">I_S</span> بحدود nA</td></tr>
+<tr><td>المقاومة</td><td><span class="math-tex">r_d</span> منخفضة جداً</td><td><span class="math-tex">R_R</span> عالية للغاية</td></tr>
+<tr><td>منطقة الاستنفاذ</td><td>تضيق وتنهار</td><td>تتسع</td></tr>
+<tr><td>السلوك المكافئ</td><td>مفتاح مغلق (موصل)</td><td>مفتاح مفتوح (عازل)</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ انهيار زينر vs الانهيار الإنهيماري</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>انهيار زينر</b></th><th><b>الانهيار الإنهيماري (Avalanche)</b></th></tr>
+<tr><td>الجهد العكسي</td><td>أقل (عادة <span class="math-tex">V_Z &lt; 5</span>V)</td><td>أعلى</td></tr>
+<tr><td>السبب</td><td>تطعيم كثيف ← مجال شديد يكسر الروابط التساهمية مباشرة</td><td>تسارع حاملات الشحنة وتأين التصادم</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ أنواع الثنائيات وتطبيقاتها (من المحاضرة)</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>النوع</b></th><th><b>التطبيق</b></th></tr>
+<tr><td>تقويم Rectifier</td><td>تحويل AC إلى DC في وحدات التغذية</td></tr>
+<tr><td>زينر Zener</td><td>تثبيت الجهد + جهود مرجعية دقيقة</td></tr>
+<tr><td>إشارة Signal</td><td>كشف التضمين، القص، الحد، استعادة DC</td></tr>
+<tr><td>حماية</td><td>حماية من القطبية المعكوسة ونبضات الجهد داخل الدوائر المتكاملة</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🔌 الدايود — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🧱 البناء — وصلة PN</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>انتشار إلكترونات N ← P</li><li>أيونات ثابتة (+ في N / − في P) ← منطقة استنفاذ</li><li>مجال داخلي ← اتزان ديناميكي ← جهد حاجز <span class="math-tex">V_\gamma</span> = 0.7V سيليكون / 0.3V جرمانيوم</li></ul></div></details>
+<details class="tg"><summary><span>🔋 حالات التحيز</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>لا تحيز: <span class="math-tex">V_D = 0</span></li><li>أمامي <span class="math-tex">V_D &gt; 0</span>: استنفاذ يضيق ← تيار أسّي ← مفتاح مغلق</li><li>عكسي <span class="math-tex">V_D &lt; 0</span>: استنفاذ يتسع ← <span class="math-tex">I_S</span> بحدود nA ← مفتاح مفتوح</li></ul></div></details>
+<details class="tg"><summary><span>⚡ منطقة زينر</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تطعيم كثيف ← استنفاذ ضيق جداً</li><li>عند <span class="math-tex">V_Z</span>: تأين بالمجال ← كسر روابط جماعي ← توصيل عكسي آمن</li><li>زينر (جهد أقل) ≠ أفلانش (جهد أعلى + تأين تصادمي)</li></ul></div></details>
+<details class="tg"><summary><span>🛠️ التطبيقات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تقويم AC إلى DC • تثبيت جهد • حماية قطبية معكوسة • معالجة إشارات • حماية ICs</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>اذكر أربعة تطبيقات للثنائيات مع وظيفة كل منها.</li><li>اشرح بالتفصيل كيف تتشكل منطقة الاستنفاذ عند وصلة PN في حالة الاتزان.</li><li>ما هو جهد الحاجز؟ وما قيمته للسيليكون والجرمانيوم؟ وكيف ينشأ؟</li><li>عرّف التحيز، وعدّد حالاته الثلاث مع شرط كل حالة.</li><li>قارن بين التحيز الأمامي والعكسي من حيث: التيار، المقاومة، منطقة الاستنفاذ، والسلوك كمفتاح.</li><li>ما تيار التشبع العكسي <span class="math-tex">I_S</span>؟ وما مصدره الفيزيائي؟ وبأي وحدة يقاس للسيليكون؟</li><li>اشرح آلية عمل منطقة زينر (التطعيم الكثيف ← الاستنفاذ الضيق ← التأين بالمجال).</li><li>قارن بين انهيار زينر والانهيار الإنهيماري من حيث الجهد والآلية.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="el-t1.html">→ السابقة: نظري 01</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="el-t3.html">التالية: نظري 03 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

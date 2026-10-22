@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 02 — الفاصلة العائمة ومعمارية 8086 | GODLY MUST</title>
+<meta name="description" content="الفاصلة العائمة ومعمارية 8086 — Floating Point & 8086 Architecture · تركيب ومعمارية الحاسوب">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">COMPUTER ORGANIZATION & ARCHITECTURE</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 02</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">الفاصلة العائمة ومعمارية 8086</h1>
+    <div class="doc__en mono" dir="ltr">Floating Point & 8086 Architecture</div>
+    <div class="doc__teach">👤 م. رسل العبيدي · تركيب ومعمارية الحاسوب</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📙</span><div class="callout__body"><p class="para"><b>المحاضرة الثانية — نظري</b><br>Floating Point (IEEE 754) · 8086 General Registers · Programmer&#x27;s Model · BIU &amp; Segmentation<br><i>م. رسل العبيدي — كلية الهندسة</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>الفاصلة العائمة (Floating Point) — الفكرة والمعادلة</li><li>أمثلة محلولة على الصيغة العلمية</li><li>معيار IEEE 754 — 32-bit</li><li>أمثلة IEEE 754 محلولة بالكامل</li><li>السجلات العامة للمعالج 8086</li><li>النموذج البرمجي للمعالج (Programmer&#x27;s Model)</li><li>وحدة واجهة الناقل (BIU) والعنونة الفيزيائية</li><li>أمثلة على توليد العنوان الفيزيائي</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ الفاصلة العائمة — الفكرة والمعادلة</h3>
+<p class="para">🌱 لتمثيل الأعداد الكسرية الكبيرة والصغيرة جداً تُستخدم <b>الفاصلة العائمة (Floating Point)</b>. العدد يُخزَّن في <b>32 بت</b> مقسمة إلى ثلاثة حقول:</p>
+<ul class="lst"><li><b>بت الإشارة (Sign bit)</b></li><li><b>الأس (Exponent)</b></li><li><b>الأهمية / المانتيسا (Significand / Mantissa)</b></li></ul>
+<p class="para">🌿 المعادلة العامة التي تجمع الحقول الثلاثة:</p>
+<div class="math-tex math-tex--display">x = \pm f \times B^{e}</div>
+<p class="para">حيث <span class="math-tex">f</span> الأهمية (الكسر)، <span class="math-tex">B</span> الأساس، و <span class="math-tex">e</span> الأس.</p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ أمثلة محلولة على الصيغة العلمية</h3>
+<p class="para">🌱 <b>مثال عشري (أساس 10):</b> العدد 123.45 يُكتب بالصيغة العلمية:</p>
+<div class="math-tex math-tex--display">123.45 = 0.12345 \times 10^{3}</div>
+<p class="para">🌿 <b>مثال ثنائي (أساس 2):</b> بالثنائي نفس المنطق — نحرك الفاصلة ونضرب بقوى 2.</p>
+<figure class="fig"><img src="assets/ca-fpformats.jpg" alt="أمثلة الملزمة على صيغة الفاصلة العائمة بالعشري والثنائي — من الملزمة" loading="lazy"><figcaption>أمثلة الملزمة على صيغة الفاصلة العائمة بالعشري والثنائي — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ معيار IEEE 754 — 32-bit</h3>
+<p class="para">🌱 التوزيع القياسي للدقة المفردة (Single Precision):</p>
+<ul class="lst"><li><b>بت واحد للإشارة (S)</b></li><li><b>8 بتات للأس (E)</b> — مخزَّن بانحياز <span class="math-tex">+127</span> (Excess-127)</li><li><b>23 بت للمانتيسا (F)</b></li></ul>
+<p class="para">🌿 قيمة العدد تُحسب بالعلاقة:</p>
+<div class="math-tex math-tex--display">\text{value} = (-1)^{S} \times (1 + F) \times 2^{E - 127}</div>
+<p class="para">🌳 لاحظ الـ <b>1 الضمني</b>: المانتيسا المخزنة F تمثل الكسر فقط، والعدد الحقيقي <span class="math-tex">1 + F</span> — وهذا يكسبنا بت دقة إضافي مجاناً.</p>
+<figure class="fig"><img src="assets/ca-ieee754.jpg" alt="مثال تحويل 9.75 إلى صيغة IEEE 754 — الإشارة 0 والأس 129 والمانتيسا 001110... — من الملزمة" loading="lazy"><figcaption>مثال تحويل 9.75 إلى صيغة IEEE 754 — الإشارة 0 والأس 129 والمانتيسا 001110... — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ أمثلة IEEE 754 محلولة بالكامل</h3>
+<p class="para">🌱 <b>مثال 1 — من عشري إلى IEEE 754:</b> العدد <span class="math-tex">0.015625_{10}</span>:</p>
+<div class="math-tex math-tex--display">0.015625 = 0.000001_2 = 1.0 \times 2^{-6}</div>
+<p class="para">الإشارة = 0 (موجب)، الأس = <span class="math-tex">-6 + 127 = 121 = 01111001_2</span>، المانتيسا = أصفار ← الناتج 32 بت: <code>0 01111001 00000000000000000000000</code></p>
+<figure class="fig"><img src="assets/ca-floatex.jpg" alt="الحل الكامل لمثال 0.015625 خطوة بخطوة — من الملزمة" loading="lazy"><figcaption>الحل الكامل لمثال 0.015625 خطوة بخطوة — من الملزمة</figcaption></figure>
+<p class="para">🌿 <b>مثال 2 — من IEEE 754 إلى عشري:</b> القيمة <code>0xC0A00000</code>:</p>
+<ul class="lst"><li><span class="math-tex">S = 1</span> ← العدد سالب</li><li><span class="math-tex">E = 10000001_2 = 129</span> ← الأس الحقيقي <span class="math-tex">129 - 127 = 2</span></li><li><span class="math-tex">F = 0100000\ldots</span> ← <span class="math-tex">1 + F = 1.25</span></li></ul>
+<div class="math-tex math-tex--display">\text{value} = (-1)^1 \times 1.25 \times 2^{2} = -5.0</div>
+<figure class="fig"><img src="assets/ca-ieee32.jpg" alt="تفكيك الحقول الثلاثة على 32 بت وحل مثال 0xC0A00000 — من الملزمة" loading="lazy"><figcaption>تفكيك الحقول الثلاثة على 32 بت وحل مثال 0xC0A00000 — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ السجلات العامة للمعالج 8086</h3>
+<p class="para">🌱 المعالج Intel 8086/8088 معالج <b>16 بت</b> يحتوي <b>8 سجلات عامة (General Purpose Registers)</b> — أربعة سجلات بيانات يمكن استخدام كل منها كسجل 16 بت كامل أو كجزأين 8 بت:</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>السجل 16-bit</th><th>الجزء العالي</th><th>الجزء الواطي</th><th>الدور الرئيسي</th></tr>
+<tr><td>AX</td><td>AH</td><td>AL</td><td>المُراكم (Accumulator) — الحساب والإدخال/الإخراج</td></tr>
+<tr><td>BX</td><td>BH</td><td>BL</td><td>الأساس (Base) — عنونة الذاكرة</td></tr>
+<tr><td>CX</td><td>CH</td><td>CL</td><td>العّداد (Counter) — الحلقات</td></tr>
+<tr><td>DX</td><td>DH</td><td>DL</td><td>البيانات (Data) — الضرب/القسمة ومنافذ I/O</td></tr>
+</table></div>
+<p class="para">🌿 إضافة إلى أربعة سجلات مؤشرات وفهارس: <b>SP, BP, SI, DI</b> — وهي 16 بت فقط ولا تنقسم إلى أجزاء 8 بت.</p>
+<figure class="fig"><img src="assets/ca-regs.jpg" alt="السجلات العامة الثمانية للمعالج 8086 وتقسيم كل سجل بيانات إلى جزأين H وL — من الملزمة" loading="lazy"><figcaption>السجلات العامة الثمانية للمعالج 8086 وتقسيم كل سجل بيانات إلى جزأين H وL — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ النموذج البرمجي للمعالج (Programmer&#x27;s Model)</h3>
+<p class="para">🌱 المجموعات الأربع التي يراها المبرمج:</p>
+<ul class="lst"><li><b>Data:</b> ‏AX, BX, CX, DX — سجلات البيانات العامة</li><li><b>Pointers:</b> ‏SP (مؤشر المكدس), BP (مؤشر الأساس)</li><li><b>Index:</b> ‏SI (فهرس المصدر), DI (فهرس الوجهة)</li><li><b>Segment:</b> ‏CS, DS, ES, SS — سجلات القطاعات</li><li><b>Status &amp; Control:</b> ‏IP (مؤشر التعليمة) و FLAGS (سجل الأعلام)</li></ul>
+<figure class="fig"><img src="assets/ca-model.jpg" alt="النموذج البرمجي للمعالج 8086 — مجموعات السجلات الخمس — من الملزمة" loading="lazy"><figcaption>النموذج البرمجي للمعالج 8086 — مجموعات السجلات الخمس — من الملزمة</figcaption></figure>
+<div class="callout"><span class="callout__icon">⚠️</span><div class="callout__body"><p class="para"><b>تنبيه من الملزمة:</b> في مخطط النموذج البرمجي كُتب &quot;Base Pointer&quot; مكان <b>FLAGS</b> بالغلط ضمن مجموعة Status and Control — الصحيح أنها <b>سجل الأعلام FLAGS</b>.</p></div></div>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ وحدة واجهة الناقل (BIU) والعنونة الفيزيائية</h3>
+<p class="para">🌱 <b>وحدة واجهة الناقل (Bus Interface Unit)</b> هي همزة الوصل بين المعالج والعالم الخارجي:</p>
+<ul class="lst"><li><b>طابور تعليمات (Instruction Queue)</b> سعة 6 بايتات — يجلب التعليمات مسبقاً</li><li><b>ناقل بيانات 16 بت</b> — ينقل البيانات الفعلية</li><li><b>ناقل عنوان 20 بت</b> ← مساحة عنونة <span class="math-tex">2^{20} = 1\,\text{MB}</span></li><li><b>تقطيع الذاكرة (Segmentation):</b> الذاكرة مقسمة منطقياً إلى 4 قطاعات، كل واحد 64KB</li></ul>
+<p class="para">🌿 <b>توليد العنوان الفيزيائي:</b> جامع مخصص يزيح قيمة القطاع 4 بتات لليسار (ضرب بـ16) ثم يجمع الإزاحة:</p>
+<div class="math-tex math-tex--display">\text{Physical Address} = \text{Segment} \times 16 + \text{Offset}</div>
+<figure class="fig"><img src="assets/ca-biu.jpg" alt="مخطط وحدة واجهة الناقل BIU — الطابور والنواقل وتوليد العنوان — من الملزمة" loading="lazy"><figcaption>مخطط وحدة واجهة الناقل BIU — الطابور والنواقل وتوليد العنوان — من الملزمة</figcaption></figure>
+<figure class="fig"><img src="assets/ca-segments.jpg" alt="الذاكرة 1MB مقسمة منطقياً إلى أربعة قطاعات: كود، مكدس، بيانات، إضافي — من الملزمة" loading="lazy"><figcaption>الذاكرة 1MB مقسمة منطقياً إلى أربعة قطاعات: كود، مكدس، بيانات، إضافي — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">8️⃣ أمثلة على توليد العنوان الفيزيائي</h3>
+<p class="para">🌱 القطاعات قد <b>تتداخل (Overlapping)</b> لأن التقطيع أسلوب عنونة منطقي وليس تقسيماً مادياً للذاكرة.</p>
+<figure class="fig"><img src="assets/ca-overlap.jpg" alt="القطاعات المتداخلة — كل قطاع يبدأ على حدود 16 بايت — من الملزمة" loading="lazy"><figcaption>القطاعات المتداخلة — كل قطاع يبدأ على حدود 16 بايت — من الملزمة</figcaption></figure>
+<p class="para">🌿 <b>أمثلة الملزمة المحلولة</b> (قطاع : إزاحة ← عنوان فيزيائي):</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>القطاع</th><th>قيمة القطاع</th><th>الإزاحة</th><th>العنوان الفيزيائي</th></tr>
+<tr><td>الكود CS</td><td><code>0384</code></td><td>IP = <code>4214</code></td><td><span class="math-tex">0384 \times 16 + 4214 = 07A54_{16}</span></td></tr>
+<tr><td>المكدس SS</td><td><code>105B</code></td><td>SP = <code>FFFE</code></td><td><span class="math-tex">105B0 + FFFE = 205AE_{16}</span></td></tr>
+<tr><td>البيانات DS</td><td><code>2570</code></td><td><code>0000</code></td><td><span class="math-tex">25700_{16}</span></td></tr>
+<tr><td>الإضافي ES</td><td><code>8FFF</code></td><td><code>0000</code></td><td><span class="math-tex">8FFF0_{16}</span></td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ حقول IEEE 754 (دقة مفردة)</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الحقل</th><th>العرض</th><th>الوظيفة</th></tr>
+<tr><td>Sign (S)</td><td>1 بت</td><td>إشارة العدد: 0 موجب، 1 سالب</td></tr>
+<tr><td>Exponent (E)</td><td>8 بت</td><td>الأس + 127 (Excess-127)</td></tr>
+<tr><td>Mantissa (F)</td><td>23 بت</td><td>كسر المانتيسا — والقيمة الفعلية <span class="math-tex">1 + F</span></td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ سجلات القطاعات الأربعة</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>السجل</th><th>الاسم</th><th>الاقتران الشائع</th></tr>
+<tr><td>CS</td><td>قطاع الكود</td><td>CS:IP لجلب التعليمات</td></tr>
+<tr><td>SS</td><td>قطاع المكدس</td><td>SS:SP لقمة المكدس</td></tr>
+<tr><td>DS</td><td>قطاع البيانات</td><td>الافتراضي لمعظم البيانات</td></tr>
+<tr><td>ES</td><td>القطاع الإضافي</td><td>وجهة تعليمات السلاسل ES:DI</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>💾 من البت إلى المعالج — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🌊 الفاصلة العائمة IEEE 754</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>المعادلة: <span class="math-tex">x = \pm f \times B^e</span></li><li>32 بت: إشارة 1 + أس 8 + مانتيسا 23</li><li>القيمة: <span class="math-tex">(-1)^S \times (1+F) \times 2^{E-127}</span></li><li><span class="math-tex">0xC0A00000 = -5.0</span> و <span class="math-tex">0.015625 \to</span> أس <span class="math-tex">121</span></li></ul></div></details>
+<details class="tg"><summary><span>🧩 سجلات 8086</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>بيانات: AX/BX/CX/DX وتنقسم إلى H وL</li><li>مؤشرات وفهارس: SP/BP/SI/DI بلا تقسيم</li><li>قطاعات: CS/DS/ES/SS + IP وFLAGS</li></ul></div></details>
+<details class="tg"><summary><span>🚌 BIU والعنونة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>طابور 6 بايت + ناقل بيانات 16 بت + ناقل عنوان 20 بت</li><li>العنوان الفيزيائي = قطاع × 16 + إزاحة</li><li>4 قطاعات × 64KB قد تتداخل</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>اكتب المعادلة العامة للفاصلة العائمة واشرح حقولها الثلاثة.</li><li>حوّل العدد 0.015625 إلى صيغة IEEE 754 ذات 32 بت خطوة بخطوة.</li><li>فكّك القيمة <code>0xC0A00000</code> وأثبت أنها تمثل <span class="math-tex">-5.0</span>.</li><li>اذكر السجلات العامة الثمانية للمعالج 8086 مع وظيفة كل واحد، وبين أيها ينقسم إلى 8 بت.</li><li>ما وظيفة وحدة BIU؟ واذكر مواصفات النواقل الثلاثة فيها.</li><li>اشتق العنوان الفيزيائي للزوج <code>0384:4214</code> واشرح لماذا تُزاح قيمة القطاع 4 بتات.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ca-t1.html">→ السابقة: نظري 01</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ca-t3.html">التالية: نظري 03 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

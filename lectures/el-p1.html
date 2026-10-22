@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 01 — خصائص الدايود | GODLY MUST</title>
+<meta name="description" content="خصائص الدايود — Exp 1: Diode Characteristics · أسس الإلكترونيك">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">ELECTRONICS FUNDAMENTALS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 01</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">خصائص الدايود</h1>
+    <div class="doc__en mono" dir="ltr">Exp 1: Diode Characteristics</div>
+    <div class="doc__teach">👤 م. زهراء عبد المهدي + م. عقيل علي · أسس الإلكترونيك</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">🔬</span><div class="callout__body"><p class="para"><b>التجربة الأولى — مختبر</b><br>Exp 1: Diode Characteristics — دراسة خصائص الدايود وظروف التحيز<br><i>د. أكرم محمد حاتم + م. زهراء عبد المهدي + م. عقيل علي</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس التجربة</h2>
+<ol class="lst lst--num"><li>الهدف والأجهزة</li><li>النظرية: بنية الدايود ورمزه</li><li>التحيز الأمامي (Forward Bias)</li><li>التحيز العكسي (Reverse Bias)</li><li>الدائرة المكافئة للدايود — النموذج الكامل</li><li>التطبيق العملي</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ الهدف والأجهزة</h3>
+<p class="para">🎯 <b>الهدف:</b> دراسة خصائص الدايود وظروف التحيز (Biasing Conditions).<br>🛠️ <b>الأجهزة:</b></p>
+<ul class="lst"><li>مصدر طاقة تيار مستمر (DC Power Supply)</li><li>أجهزة قياس (فولتميتر وأميتر)</li><li>مقاومات</li><li>أسلاك توصيل ولوحة تجارب (Breadboard)</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ النظرية: بنية الدايود ورمزه</h3>
+<p class="para">🌱 الدايود جهاز شبه موصل يسمح بمرور التيار <b>باتجاه واحد فقط</b>. يتكون من قطعة سيليكون يُطعَّم أحد جزأيها بشوائب <b>ثلاثية التكافؤ</b> لتكوين منطقة p، والجزء الآخر بشوائب <b>خماسية التكافؤ</b> لتكوين منطقة n. الحد الفاصل بينهما = <b>وصلة p-n</b>، والتطعيم هو إضافة شوائب لزيادة عدد حاملات الشحنة (إلكترونات أو فجوات).<br>🌿 <b>البنية والرمز:</b></p>
+<ul class="lst"><li>الجزء p يُسمى <b>المصعد / الأنود (Anode — A)</b></li><li>الجزء n يُسمى <b>المهبط / الكاثود (Cathode — K)</b></li><li>السهم في الرمز يشير إلى اتجاه <b>التيار الاصطلاحي</b> (المعاكس لتدفق الإلكترونات)</li></ul>
+<figure class="fig"><img src="assets/p1-diode.png" alt="رمز الدايود وبنيته — من ملزمة التجربة" loading="lazy"><figcaption>رمز الدايود وبنيته — من ملزمة التجربة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ التحيز الأمامي (Forward Bias)</h3>
+<p class="para">🌱 مصطلح &quot;التحيز/الإزاحة&quot; يعني تطبيق جهد DC لتهيئة ظروف تشغيل محددة لجهاز إلكتروني.<br>🌿 التحيز الأمامي يسمح بمرور التيار عبر وصلة p-n، ويتحقق بتوصيل:</p>
+<ul class="lst"><li><b>الطرف الموجب</b> لمصدر <span class="math-tex">V_{BIAS}</span> ← منطقة p (الأنود)</li><li><b>الطرف السالب</b> ← منطقة n (الكاثود)</li></ul>
+<p class="para">🌳 شرط التوصيل: يجب أن تتجاوز قيمة <span class="math-tex">V_{BIAS}</span> جهد الحاجز (<b>0.7 فولت للسيليكون</b> و <b>0.3 فولت للجرمانيوم</b>). وتُضاف دائماً <b>مقاومة على التوالي (R)</b> للحد من التيار الأمامي وحماية الدايود من التلف الحراري.</p>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ التحيز العكسي (Reverse Bias)</h3>
+<p class="para">🌿 التحيز العكسي هو الحالة التي تمنع مرور التيار عبر الدايود بشكل أساسي، وتتحقق بتوصيل:</p>
+<ul class="lst"><li><b>الطرف الموجب</b> لـ <span class="math-tex">V_{BIAS}</span> ← المنطقة السالبة n (الكاثود)</li><li><b>الطرف السالب</b> ← المنطقة الموجبة p (الأنود)</li></ul>
+<p class="para">🌳 في هذه الحالة: الجهد المطبق <b>يسحب حاملات الشحنة السائدة بعيداً عن الوصلة</b> ← تتسع منطقة الاستنفاذ ← يعمل الدايود كـ<b>مفتاح مفتوح</b>، ولا يسمح إلا بمرور تيار تسرب ضئيل جداً (يتراوح بين nA و µA).</p>
+<figure class="fig"><img src="assets/p1-bias.png" alt="دوائر التحيز الأمامي والعكسي — من ملزمة التجربة" loading="lazy"><figcaption>دوائر التحيز الأمامي والعكسي — من ملزمة التجربة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ الدائرة المكافئة للدايود — النموذج الكامل (Complete Model)</h3>
+<p class="para">🌳 في الدوائر العملية يُستخدم النموذج الكامل للتحليل الدقيق؛ إذ يأخذ بالاعتبار: <b>جهد الحاجز</b> + <b>المقاومة الديناميكية</b> + <b>المقاومة الداخلية للتحيز العكسي</b>:</p>
+<ul class="lst"><li><b>حالة التحيز الأمامي:</b> يُمثَّل الدايود بمفتاح مغلق موصول على التوالي مع مصدر جهد يمثل جهد الحاجز (0.7 فولت) ومقاومة ديناميكية أمامية صغيرة (<span class="math-tex">r&#x27;_d</span>)</li><li><b>حالة التحيز العكسي:</b> يُمثَّل الدايود بمفتاح مفتوح موصول على التوازي مع مقاومة عكسية عالية جداً (<span class="math-tex">r&#x27;_R</span>) تسمح بمرور تيار تسرب عكسي ضئيل للغاية (<span class="math-tex">I_R</span>)</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ التطبيق العملي</h3>
+<div class="callout"><span class="callout__icon">💻</span><div class="callout__body"><p class="para">الصفحة الأخيرة من المحاضرة تحتوي تطبيقاً عملياً لدائرة كهربائية تحتوي على دايود بنوعي التحيز (أمامي وعكسي) على برنامج <b>NI Multisim</b> — يُرجى الاطلاع عليها في الملزمة الأساسية</p></div></div>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ التحيز الأمامي vs العكسي في التجربة</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>أمامي Forward</b></th><th><b>عكسي Reverse</b></th></tr>
+<tr><td>توصيل <span class="math-tex">V_{BIAS}</span></td><td>الموجب ← p (أنود) / السالب ← n (كاثود)</td><td>الموجب ← n (كاثود) / السالب ← p (أنود)</td></tr>
+<tr><td>الشرط</td><td><span class="math-tex">V_{BIAS}</span> \&gt; جهد الحاجز (0.7V Si / 0.3V Ge)</td><td>—</td></tr>
+<tr><td>منطقة الاستنفاذ</td><td>تضيق</td><td>تتسع</td></tr>
+<tr><td>التيار</td><td>يسري (مع مقاومة توالٍ حامية R)</td><td>تسرب ضئيل nA ← µA</td></tr>
+<tr><td>النموذج المكافئ</td><td>مفتاح مغلق + 0.7V + <span class="math-tex">r&#x27;_d</span> على التوالي</td><td>مفتاح مفتوح ∥ <span class="math-tex">r&#x27;_R</span> عالية جداً</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🔬 Exp 1 — خصائص الدايود</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🧱 البنية</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>سيليكون: جزء ثلاثي التطعيم = p ← وجزء خماسي = n</li><li>الحد الفاصل = وصلة p-n</li><li>الرمز: أنود A (سهم باتجاه التيار الاصطلاحي) / كاثود K</li></ul></div></details>
+<details class="tg"><summary><span>🔋 التحيز</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>أمامي: موجب←p وسالب←n ← تجاوز 0.7V ← يوصّل (مقاومة حماية R)</li><li>عكسي: موجب←n وسالب←p ← استنفاذ يتسع ← يحجب (تسرب nA–µA)</li></ul></div></details>
+<details class="tg"><summary><span>⚙️ النموذج الكامل</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>أمامي = مفتاح مغلق + 0.7V + <span class="math-tex">r&#x27;_d</span></li><li>عكسي = مفتاح مفتوح ∥ <span class="math-tex">r&#x27;_R</span> + تسرب <span class="math-tex">I_R</span></li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>ما هدف التجربة؟ واذكر الأجهزة الأربعة المستخدمة فيها.</li><li>كيف يتكون الدايود من قطعة سيليكون واحدة؟ وما المقصود بالتطعيم؟</li><li>في رمز الدايود: أي جزء هو الأنود وأيها الكاثود؟ وبأي اتجاه يشير السهم؟</li><li>اشرح كيف يتحقق التحيز الأمامي، وما شرط التوصيل، ولماذا تُضاف مقاومة على التوالي؟</li><li>اشرح ما يحدث لمنطقة الاستنفاذ في التحيز العكسي، وما مقدار تيار التسرب؟</li><li>ارسم/اوصف النموذج الكامل للدايود في حالتي التحيز الأمامي والعكسي.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="el-t3.html">→ السابقة: نظري 03</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="el-p2.html">التالية: عملي 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

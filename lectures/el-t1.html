@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 01 — أشباه الموصلات ومستويات الطاقة | GODLY MUST</title>
+<meta name="description" content="أشباه الموصلات ومستويات الطاقة — Semiconductors & Energy Levels · أسس الإلكترونيك">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">ELECTRONICS FUNDAMENTALS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 01</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">أشباه الموصلات ومستويات الطاقة</h1>
+    <div class="doc__en mono" dir="ltr">Semiconductors & Energy Levels</div>
+    <div class="doc__teach">👤 د. أكرم محمد حاتم · أسس الإلكترونيك</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📘</span><div class="callout__body"><p class="para"><b>المحاضرة الأولى — نظري</b><br>Introduction, Semiconductor Materials, Energy Levels, n- and p-Type Extrinsic Materials<br><i>د. أكرم محمد حاتم — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>المقدمة — الإلكترونيات والأمن السيبراني</li><li>المواد شبه الموصلة — التصنيف الثلاثي</li><li>مستويات الطاقة وحزم الطاقة</li><li>المواد المشوبة: n-Type و p-Type</li><li>أهمية فيزياء أشباه الموصلات في الأمن السيبراني</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ المقدمة</h3>
+<p class="para">🌱 <b>الأساس:</b> الإلكترونيات هي الطبقة المادية الأساسية (Hardware Layer) لبنية الأمن السيبراني الحديثة، وفي صميمها تكمن <b>فيزياء أشباه الموصلات</b> — دراسة مواد يمكن التحكم بخصائصها الكهربائية بدقة لتصنيع مكونات جوهرية: الثنائيات (Diodes)، الترانزستورات، والدوائر المتكاملة (ICs).<br>🌿 <b>الربط:</b> لمختص الأمن السيبراني، فهم هذه المكونات على المستوى المادي بالغ الأهمية — الثغرات المرتبطة بالعتاد، هجمات القنوات الجانبية، وتقنيات التشفير القائمة على السيليكون تعتمد كلها بشكل مباشر على سلوك أشباه الموصلات.<br>🌳 <b>الخلاصة:</b> الإلمام بأساسيات الإلكترونيات حيوي لتأمين الأنظمة بدءاً من الطبقة المادية وصولاً إلى المستويات العليا.</p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ المواد شبه الموصلة</h3>
+<p class="para">🌱 في فيزياء الحالة الصلبة تُصنَّف المواد إلى ثلاث فئات حسب قدرتها على توصيل الكهرباء:</p>
+<ul class="lst"><li><b>الموصلات</b> (النحاس، الألمنيوم): موصلية كهربائية عالية بسبب وفرة الإلكترونات الحرة</li><li><b>العوازل</b> (الزجاج، المطاط): تقاوم سريان التيار بشدة بسبب الارتباط القوي لإلكترونات التكافؤ</li><li><b>أشباه الموصلات</b> (السيليكون Si، الجرمانيوم Ge، زرنيخيد الغاليوم GaAs): مستويات توصيل تقع بين الموصلات والعوازل</li></ul>
+<p class="para">🌿 في حالتها النقية — <b>أشباه الموصلات الذاتية (Intrinsic)</b> — تكون موصليتها منخفضة نسبياً عند درجة حرارة الغرفة.<br>🌳 خصائصها المميزة: <b>الحساسية لتغيرات درجة الحرارة</b>، وقدرتها على <b>زيادة الموصلية بشكل كبير</b> عند خلطها بكميات ضئيلة من شوائب محددة.</p>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ مستويات الطاقة وحزم الطاقة</h3>
+<p class="para">🌱 الإلكترونات داخل الذرة المعزولة تشغل <b>مستويات طاقة محددة ومنفصلة</b>؛ وعندما تتحد الذرات لتشكّل شبكة بلورية صلبة، تتسع هذه المستويات لتصبح <b>حزماً من الطاقة</b> — وهذا جوهر نظرية حزم الطاقة.<br>🌿 الحزم الثلاث:</p>
+<ol class="lst lst--num"><li><b>حزمة التكافؤ (Valence Band):</b> أعلى نطاق لطاقات الإلكترونات التي تتواجد فيها عادةً عند درجة حرارة الصفر المطلق (0 كلفن)</li><li><b>حزمة التوصيل (Conduction Band):</b> نطاق مستويات الطاقة الذي يعلو حزمة التكافؤ؛ الإلكترونات فيه حرة الحركة داخل المادة وتساهم في التوصيل الكهربائي</li><li><b>فجوة الطاقة (</b><span class="math-tex">E_g</span><b> — الفجوة الممنوعة):</b> فرق الطاقة بين قمة حزمة التكافؤ وقاع حزمة التوصيل</li></ol>
+<p class="para">🌳 قيمة الفجوة تحدد سلوك المادة:</p>
+<ul class="lst"><li><b>الموصلات:</b> الحزمتان متداخلتان (<span class="math-tex">E_g \approx 0</span> eV)</li><li><b>العوازل:</b> فجوة واسعة جداً (<span class="math-tex">E_g &gt; 5</span> eV) تمنع الإلكترونات من الانتقال في الظروف العادية</li><li><b>أشباه الموصلات:</b> فجوة صغيرة نسبياً — السيليكون <span class="math-tex">E_g \approx 1.1</span> eV والجرمانيوم <span class="math-tex">E_g \approx 0.67</span> eV عند درجة حرارة الغرفة</li></ul>
+<p class="para">الطاقة الحرارية عند درجة حرارة الغرفة تسمح لعدد قليل من إلكترونات التكافؤ بعبور الفجوة إلى حزمة التوصيل → تتولد <b>إلكترونات حرة</b> وتُترك خلفها فراغات موجبة الشحنة تُسمى <b>الفجوات (Holes)</b>.</p>
+<figure class="fig"><img src="assets/l1-energy-bands.png" alt="حزم الطاقة في العازل وشبه الموصل والمعدن — من ملزمة المحاضرة" loading="lazy"><figcaption>حزم الطاقة في العازل وشبه الموصل والمعدن — من ملزمة المحاضرة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ المواد المشوبة (Extrinsic): النوع السالب n-Type والنوع الموجب p-Type</h3>
+<p class="para">🌱 أشباه الموصلات النقية تطبيقاتها العملية محدودة لأن موصليتها منخفضة وتعتمد بشدة على الحرارة → الحل: <b>التطعيم (Doping)</b> — إدخال متعمد لذرات شوائب محددة في البنية البلورية. الناتج يُسمى <b>مواد غير ذاتية (Extrinsic Materials)</b> وتنقسم لفئتين رئيسيتين.</p>
+<h4 class="doc-h4">🔵 أشباه الموصلات n-Type (النوع السالب)</h4>
+<p class="para">🌱 <b>التكوين:</b></p>
+<ul class="lst"><li>تطعيم السيليكون أو الجرمانيوم النقي بذرات <b>خماسية التكافؤ</b> (تمتلك 5 إلكترونات تكافؤ): الفسفور، الزرنيخ، الأنتيمون</li><li>أربعة من إلكترونات تكافؤ الشائبة تكوّن روابط تساهمية مع ذرات السيليكون المجاورة، بينما <b>الإلكترون الخامس</b> يبقى مرتبطاً بضعف → يتحول بسهولة إلى إلكترون حر في حزمة التوصيل</li><li>لأن هذه الشوائب <b>تمنح</b> إلكترونات حرة → تُسمى <b>شوائب مانحة (Donor Impurities)</b></li></ul>
+<figure class="fig"><img src="assets/l1-ntype.png" alt="شبكة سيليكون مطعّمة بذرة أنتيمون (Sb) — الإلكترون الخامس حر — من الملزمة" loading="lazy"><figcaption>شبكة سيليكون مطعّمة بذرة أنتيمون (Sb) — الإلكترون الخامس حر — من الملزمة</figcaption></figure>
+<p class="para">🌿 <b>التوصيل عند تطبيق جهد خارجي:</b></p>
+<ul class="lst"><li>الإلكترونات الحرة تتحرك نحو <b>القطب الموجب</b></li><li>تدفق الإلكترونات يشكّل التيار الكهربائي</li><li>التوصيل يحدث رئيسياً بالإلكترونات؛ ونظراً لتركيزها المرتفع جداً → <b>تيار الإلكترونات يسود</b> على تيار الفجوات</li><li>الإلكترونات = حاملات الشحنة السائدة (الأغلبية)؛ الفجوات = حاملات الأقلية</li></ul>
+<p class="para">🌳 <b>المعادلة والخصائص:</b></p>
+<div class="math-tex math-tex--display">\sigma = q\,(n\mu_n + p\mu_p)</div>
+<p class="para">حيث <span class="math-tex">n \gg p</span> في النوع السالب. الرموز: <span class="math-tex">\sigma</span> الموصلية، <span class="math-tex">q</span> شحنة الإلكترون، <span class="math-tex">n</span> تركيز الإلكترونات، <span class="math-tex">p</span> تركيز الفجوات، <span class="math-tex">\mu_n</span> و <span class="math-tex">\mu_p</span> قابلية حركة الإلكترونات والفجوات.<br><b>المزايا:</b> موصلية عالية لكثرة الإلكترونات الحرة • الإلكترونات أسرع من الفجوات ← تدفق تيار أفضل • تحتاج طاقة أقل للتوصيل • أداء أفضل عند درجات الحرارة المنخفضة • مناسبة للأجهزة الإلكترونية عالية السرعة • مقاومة أقل مقارنة بأشباه الموصلات الذاتية<br><b>الخصائص:</b> تركيز إلكترونات عالٍ • تركيز فجوات منخفض • التوصيل رئيسياً بالإلكترونات • تحتوي ذرات شوائب مانحة • <b>محايدة كهربائياً بشكل إجمالي</b> • مقاومية أقل من شبه الموصل الذاتي</p>
+<h4 class="doc-h4">🔴 أشباه الموصلات p-Type (النوع الموجب)</h4>
+<p class="para">🌱 <b>التكوين:</b></p>
+<ul class="lst"><li>تطعيم بذرات <b>ثلاثية التكافؤ</b> (3 إلكترونات تكافؤ): البورون، الغاليوم، الإنديوم</li><li>الإلكترونات الثلاثة تكوّن روابط تساهمية مع ثلاث ذرات سيليكون مجاورة → <b>نقص إلكترون واحد في الرابطة الرابعة</b> → فراغ موجب يُعرف بـ<b>الفجوة (Hole)</b></li><li>لأن هذه الشوائب <b>تقبل</b> إلكترونات من الروابط المجاورة → تُسمى <b>شوائب قابلة (Acceptor Impurities)</b></li></ul>
+<figure class="fig"><img src="assets/l1-ptype.png" alt="شبكة سيليكون مطعّمة بذرة إنديوم (In) — فجوة في الرابطة الرابعة — من الملزمة" loading="lazy"><figcaption>شبكة سيليكون مطعّمة بذرة إنديوم (In) — فجوة في الرابطة الرابعة — من الملزمة</figcaption></figure>
+<p class="para">🌿 <b>التوصيل عند تطبيق جهد:</b></p>
+<ul class="lst"><li>الفجوات تتحرك نحو <b>القطب السالب</b></li><li>الإلكترونات تتحرك بالاتجاه المعاكس</li><li><b>تيار الفجوات يسود</b> عملية التوصيل</li></ul>
+<p class="para">🌳 <b>المعادلة والخصائص:</b><br>في p-Type حيث <span class="math-tex">p \gg n</span> تنطبق:</p>
+<div class="math-tex math-tex--display">\sigma \approx q\,p\,\mu_p</div>
+<p class="para"><b>المزايا:</b> موصلية جيدة بوجود الفجوات كحاملات أغلبية • مفيدة لتشكيل وصلات PN • تحتاج طاقة منخفضة نسبياً لتوصيل الفجوات • دور مهم في التحكم بتدفق التيار • مناسبة للمكبرات ودوائر التبديل • سهولة الدمج مع n-Type لتصنيع مكونات متنوعة<br><b>الخصائص:</b> تركيز فجوات عالٍ • تركيز إلكترونات منخفض • التوصيل رئيسياً بالفجوات • تحتوي ذرات شوائب قابلة • مقاومية أقل من شبه الموصل الذاتي<br>🌳 <b>الصورة الكبرى:</b> القدرة على إنتاج النوعين عبر التطعيم المتحكم به = حجر الأساس لإلكترونيات الحالة الصلبة الحديثة؛ وبدمج النوعين تتشكل <b>وصلة p-n</b> ← الثنائيات، الترانزستورات، الخلايا الشمسية، والمعالجات الدقيقة المتطورة.</p>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ لماذا تهم فيزياء أشباه الموصلات في الأمن السيبراني؟</h3>
+<ul class="lst"><li><b>برامج التجسس على العتاد (Hardware Trojans):</b> يستطيع المهاجمون تعديل تركيز الشوائب (مناطق n أو p) بدقة أثناء تصنيع الرقائق لإنشاء أبواب خلفية مخفية أو تغيير سلوك العتاد دون اكتشافه</li><li><b>هجمات القنوات الجانبية (Side-Channel Attacks):</b> عند انتقال الإلكترونات والفجوات عبر أشباه الموصلات تتولد حرارة وتقلبات في الطاقة؛ يقيس المهاجمون هذه الإشارات الفيزيائية الدقيقة (كاستهلاك الطاقة) لاستخراج مفاتيح التشفير</li><li><b>حقن الأعطال الفيزيائية (Physical Fault Injection):</b> تعريض أشباه الموصلات لأشعة الليزر أو درجات حرارة قصوى يولّد إلكترونات أو فجوات حرة غير متوقعة ← أعطال مؤقتة (glitches) تتجاوز فحوصات الأمان في المعالجات</li></ul>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ الموصلات vs العوازل vs أشباه الموصلات</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>الموصلات</b></th><th><b>العوازل</b></th><th><b>أشباه الموصلات</b></th></tr>
+<tr><td>أمثلة</td><td>نحاس، ألمنيوم</td><td>زجاج، مطاط</td><td>سيليكون Si، جرمانيوم Ge، GaAs</td></tr>
+<tr><td>السلوك الكهربائي</td><td>موصلية عالية</td><td>مقاومة شديدة للتيار</td><td>توصيل بين الفئتين</td></tr>
+<tr><td>السبب الفيزيائي</td><td>وفرة الإلكترونات الحرة</td><td>إلكترونات التكافؤ مرتبطة بقوة</td><td>فجوة طاقة صغيرة تُعبَر حرارياً</td></tr>
+<tr><td>فجوة الطاقة <span class="math-tex">E_g</span></td><td>≈ 0 eV (تداخل)</td><td>\&gt; 5 eV</td><td>Si ≈ 1.1 eV / Ge ≈ 0.67 eV</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ n-Type vs p-Type</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>n-Type (سالب)</b></th><th><b>p-Type (موجب)</b></th></tr>
+<tr><td>الشوائب المستخدمة</td><td>خماسية التكافؤ: فسفور، زرنيخ، أنتيمون</td><td>ثلاثية التكافؤ: بورون، غاليوم، إنديوم</td></tr>
+<tr><td>نوع الشائبة</td><td>مانحة Donor</td><td>قابلة Acceptor</td></tr>
+<tr><td>آلية التكوين</td><td>الإلكترون الخامس يبقى حراً</td><td>نقص إلكترون بالرابطة الرابعة = فجوة</td></tr>
+<tr><td>حاملات الأغلبية</td><td>الإلكترونات</td><td>الفجوات</td></tr>
+<tr><td>حاملات الأقلية</td><td>الفجوات</td><td>الإلكترونات</td></tr>
+<tr><td>الحركة عند جهد خارجي</td><td>الإلكترونات نحو القطب الموجب</td><td>الفجوات نحو القطب السالب</td></tr>
+<tr><td>التيار السائد</td><td>تيار الإلكترونات</td><td>تيار الفجوات</td></tr>
+<tr><td>العلاقة بين التركيزين</td><td><span class="math-tex">n \gg p</span></td><td><span class="math-tex">p \gg n</span></td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>⚡ أشباه الموصلات — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🧱 تصنيف المواد</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>موصلات: نحاس/ألمنيوم — إلكترونات حرة وفيرة — <span class="math-tex">E_g \approx 0</span></li><li>عوازل: زجاج/مطاط — تكافؤ مرتبط بقوة — <span class="math-tex">E_g &gt; 5</span> eV</li><li>أشباه موصلات: Si / Ge / GaAs — فجوة صغيرة (1.1 / 0.67 eV)</li></ul></div></details>
+<details class="tg"><summary><span>🔋 حزم الطاقة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>حزمة التكافؤ ← فجوة الطاقة <span class="math-tex">E_g</span> ← حزمة التوصيل</li><li>الحرارة تعبّر إلكترونات قليلة ← إلكترون حر + فجوة</li></ul></div></details>
+<details class="tg"><summary><span>🧪 التطعيم Doping</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>خماسي (P, As, Sb) ← n-Type ← شوائب مانحة ← إلكترونات أغلبية</li><li>ثلاثي (B, Ga, In) ← p-Type ← شوائب قابلة ← فجوات أغلبية</li></ul></div></details>
+<details class="tg"><summary><span>🔀 الدمج والتطبيق</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>n + p ← وصلة p-n ← دايود ← ترانزستور ← خلايا شمسية ← معالجات</li></ul></div></details>
+<details class="tg"><summary><span>🛡️ الأمن السيبراني</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>Hardware Trojans: تعديل التطعيم أثناء التصنيع</li><li>Side-Channel: قياس الطاقة لاستخراج مفاتيح التشفير</li><li>Fault Injection: ليزر/حرارة ← أعطال تتجاوز فحوصات الأمان</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>صنّف المواد كهربائياً مع مثالين لكل فئة، واذكر السبب الفيزيائي لسلوك كل منها.</li><li>عرّف كلاً من: حزمة التكافؤ، حزمة التوصيل، فجوة الطاقة — وما قيمة <span class="math-tex">E_g</span> للسيليكون والجرمانيوم عند درجة حرارة الغرفة؟</li><li>ما المقصود بعملية التطعيم؟ ولماذا تُعد أشباه الموصلات الذاتية محدودة التطبيق العملي؟</li><li>قارن بين الشوائب المانحة والشوائب القابلة مع ذكر أمثلة لكل منهما.</li><li>اشرح آلية التوصيل في أشباه الموصلات n-Type و p-Type عند تطبيق جهد خارجي.</li><li>اكتب معادلة موصلية أشباه الموصلات واشرح كل رمز فيها، ثم بسّطها لحالة p-Type.</li><li>اذكر ثلاثة أسباب تجعل فيزياء أشباه الموصلات مهمة في مجال الأمن السيبراني، شارحاً آلية كل منها.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <span></span>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="el-t2.html">التالية: نظري 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

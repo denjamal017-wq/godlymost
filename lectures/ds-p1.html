@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 01 — مدخل إلى البرمجة كائنية التوجه | GODLY MUST</title>
+<meta name="description" content="مدخل إلى البرمجة كائنية التوجه — OOP Lab 1 · هياكل البيانات">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">DATA STRUCTURES & ALGORITHMS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 01</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">مدخل إلى البرمجة كائنية التوجه</h1>
+    <div class="doc__en mono" dir="ltr">OOP Lab 1</div>
+    <div class="doc__teach">👤 م.م عباس كامل + ب. صبا صباح · هياكل البيانات</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">🔬</span><div class="callout__body"><p class="para"><b>التجربة الأولى — مختبر البرمجة كائنية التوجه</b><br>OOP Lab 1: Introduction to Object-Oriented Programming<br><i>م.م عباس كامل + ب. صبا صباح — المرحلة الثانية — قسم الأمن السيبراني</i></p></div></div>
+<div class="callout"><span class="callout__icon">🎯</span><div class="callout__body"><p class="para"><b>بجملة واحدة — شنو هالتجربة؟</b><br>راح تفهم <b>شنو هي البرمجة كائنية التوجه (OOP)</b> وليش انوجدت، وتتعلم <b>الصنف والكائن</b> و<b>المبادئ الأساسية</b> مالتها. كل مفهوم مشروح بثلاث مستويات: <b>🍼 بأبسط صورة</b> ← <b>🏠 مثال من الحياة</b> ← <b>📐 التعريف الرسمي للامتحان</b>.</p></div></div>
+<hr class="rule">
+<h1 class="doc-h1">🧠 1 \| الفكرة الكبيرة — اقرأها قبل كل شي</h1>
+<p class="para">تخيّل تريد تمثّل &quot;سيارة&quot; 🚗 داخل برنامج:</p>
+<ul class="lst"><li><b>❌ بدون OOP:</b> متغيرات متناثرة (اللون، السرعة...) ودوال منفصلة بعيدة عنها — ماكو رابط بينهم، وأي جزء بالكود يگدر يعدّل على البيانات. فوضى!</li><li><b>✅ بـ OOP:</b> نجمّع <b>خصائص السيارة + أفعالها</b> (تمشي، تفرمل...) داخل قالب واحد — والبيانات محمية، ما يوصل إلها أحد إلا بالطريقة المسموحة.</li></ul>
+<div class="callout"><span class="callout__icon">👑</span><div class="callout__body"><p class="para"><b>القاعدة الذهبية — الهدف الرئيسي من OOP:</b><br>ربط <b>البيانات</b> و<b>الدوال اللي تشتغل عليها</b> معاً في <b>وحدة واحدة</b> — بحيث <b>أي جزء آخر بالكود ما يوصل للبيانات إلا عبر هذي الدوال</b>.</p></div></div>
+<p class="para">🌍 <b>ليش اسمها &quot;كائنية التوجه&quot;؟</b> لأنها تحاكي العالم الحقيقي: كل شي حولنا &quot;كائن&quot; إله خصائص وسلوكيات — ومفاهيمها مثل <b>الوراثة</b> و<b>الإخفاء</b> و<b>تعدد الأشكال (Polymorphism)</b> كلها مستوحاة من الواقع.</p>
+<hr class="rule">
+<h1 class="doc-h1">✅ 2 \| ليش نستخدم OOP؟ — المزايا</h1>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الميزة</th><th>شنو تعني عملياً؟</th></tr>
+<tr><td>⚡ أسرع وأسهل</td><td>تنفيذ البرامج وتطويرها أسرع</td></tr>
+<tr><td>🏗️ بنية واضحة</td><td>البرنامج منظم — تعرف كل شي وين مكانه</td></tr>
+<tr><td>🚫 DRY</td><td>ما نكرر الكود ← صيانة وتعديل وتنقيح أخطاء أسهل</td></tr>
+<tr><td>♻️ إعادة استخدام</td><td>نبني تطبيقات كاملة قابلة لإعادة الاستخدام <b>بكود أقل ووقت أقصر</b></td></tr>
+</table></div>
+<div class="callout"><span class="callout__icon">📌</span><div class="callout__body"><p class="para"><b>احفظها:</b> DRY = <b>D</b>on&#x27;t <b>R</b>epeat <b>Y</b>ourself = &quot;لا تكرر نفسك&quot; — نفس الكود ما ينكتب مرتين.</p></div></div>
+<hr class="rule">
+<h1 class="doc-h1">🧱 3 \| الصنف (Class) — &quot;المخطط الهندسي&quot;</h1>
+<p class="para">🍼 <b>بأبسط صورة:</b> الصنف = <b>قالب / مخطط هندسي</b>. مثل مخطط بيت مرسوم على ورق: يحدد الغرف والأبواب — لكنه <b>مو بيت حقيقي</b>، مجرد تصميم.<br>📐 <b>التعريف الرسمي:</b> الصنف هو <b>اللبنة الأساسية في C++</b> اللي تقود للبرمجة كائنية التوجه — <b>نوع بيانات يعرّفه المستخدم</b> يحتوي على:</p>
+<ul class="lst"><li><b>📦 بيانات أعضاء (Data Members)</b> ← الخصائص والمتغيرات</li><li><b>⚙️ دوال أعضاء (Member Functions)</b> ← الدوال اللي تتعامل مع البيانات</li></ul>
+<p class="para">ويُستخدم بإنشاء <b>نسخة (Instance)</b> منه — والبيانات والدوال الأعضاء معاً يعرّفون <b>خصائص وسلوك</b> كائنات الصنف.<br>🚗 <b>مثال صنف Car:</b> سيارات كثيرة بأسماء وماركات مختلفة — لكن كلها تشترك بنفس الخصائص:</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>داخل الصنف</th><th>الأمثلة</th></tr>
+<tr><td>📦 بيانات أعضاء</td><td>4 عجلات • حد السرعة • المدى</td></tr>
+<tr><td>⚙️ دوال أعضاء</td><td>تطبيق الفرامل • زيادة السرعة</td></tr>
+</table></div>
+<div class="callout"><span class="callout__icon">⚠️</span><div class="callout__body"><p class="para"><b>نقطة امتحانية مهمة:</b> تعريف الصنف لوحده <b>ما يحجز ذاكرة</b> — الذاكرة تنحجز فقط لمن ننشئ كائن منه!</p></div></div>
+<hr class="rule">
+<h1 class="doc-h1">🚙 4 \| الكائن (Object) — &quot;النسخة الحقيقية&quot;</h1>
+<p class="para">🍼 <b>بأبسط صورة:</b> الكائن هو <b>الشي الحقيقي</b> اللي انصنع من القالب. الصنف يگول &quot;السيارة عندها 4 عجلات&quot; — الكائن هو <b>سيارتي الكيا البيضاء</b> اللي واقفة بالشارع.<br>📐 <b>التعريف الرسمي:</b> كيان <b>قابل للتعريف، إله خصائص وسلوك</b> — وهو <b>نسخة من صنف (Instance of a Class)</b>.<br>🧠 <b>الذاكرة — النقطة الذهبية:</b></p>
+<ul class="lst"><li>تعريف الصنف ← ❌ <b>ما تُخصَّص ذاكرة</b></li><li>إنشاء الكائن (الاستنساخ) ← ✅ <b>تُخصَّص ذاكرة</b> + يحتل مساحة وإله <b>عنوان</b> مرتبط بيه</li></ul>
+<p class="para">💬 <b>شلون تتعامل الكائنات ويا بعض؟</b> بإرسال <b>رسائل</b>. كل كائن يحتوي بيانات + كود يتعامل وياها، والكائنات تتفاعل <b>بدون ما تعرف تفاصيل بعضها الداخلية</b> — يكفي تعرف <b>نوع الرسالة المقبولة</b> و<b>نوع الرد المرتجع</b>.</p>
+<hr class="rule">
+<h1 class="doc-h1">⚖️ 5 \| الصنف vs الكائن — الفرق بجدول واحد</h1>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>المعيار</th><th>🧱 الصنف Class</th><th>🚙 الكائن Object</th></tr>
+<tr><td>شنو هو؟</td><td>مخطط هندسي (Blueprint)</td><td>نسخة فعلية من الصنف (Instance)</td></tr>
+<tr><td>الذاكرة</td><td>❌ ما تنحجز عند التعريف</td><td>✅ تنحجز عند الإنشاء — إله عنوان</td></tr>
+<tr><td>يحتوي</td><td>بيانات أعضاء + دوال أعضاء</td><td>بيانات + كود يتعامل وياها</td></tr>
+<tr><td>مثال السيارات</td><td>Car — التعريف العام</td><td>سيارتي الكيا البيضاء</td></tr>
+</table></div>
+<hr class="rule">
+<h1 class="doc-h1">🔐 6 \| المبدأ الأول: التغليف (Encapsulation)</h1>
+<p class="para">🍼 <b>بأبسط صورة:</b> نحط البيانات والدوال مالتها داخل <b>كبسولة 💊</b> — وحدة واحدة مغلقة.<br>📐 <b>التعريف الرسمي:</b> <b>تغليف البيانات والمعلومات تحت وحدة واحدة</b> — ربط البيانات والدوال اللي تعالجها معاً.<br>🏢 <b>مثال من الحياة:</b> الشركة بيها أقسام — حسابات، مالية، مبيعات... <b>كل قسم يغلّف بياناته ومعلوماته</b> داخل وحدته الخاصة، منفصلة عن باقي الأقسام.</p>
+<hr class="rule">
+<h1 class="doc-h1">🕶️ 7 \| المبدأ الثاني: التجريد (Abstraction)</h1>
+<p class="para">🍼 <b>بأبسط صورة:</b> نظهر للمستخدم <b>الشغلات المهمة فقط</b> ونخفي التفاصيل المعقدة وراء الستار.<br>📐 <b>التعريف الرسمي:</b> عرض <b>المعلومات الأساسية فقط</b> وإخفاء التفاصيل — نطي العالم الخارجي المعلومات الجوهرية عن البيانات ونخفي تفاصيل التنفيذ الداخلية.<br>🚗 <b>مثال من الحياة:</b> سائق السيارة يعرف: دعسة الوقود = تزيد السرعة، الفرامل = توقف السيارة — <b>بدون ما يعرف شنو يصير داخل المحرك</b>.<br><b>التجريد يتحقق بطريقتين:</b></p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الطريقة</th><th>الشرح</th><th>المثال</th></tr>
+<tr><td>1️⃣ عبر الأصناف</td><td>الصنف يجمع البيانات والدوال، و<b>محددات الوصول (Access Specifiers)</b> تقرر شنو يظهر للعالم الخارجي وشنو ينخفي</td><td>private / public</td></tr>
+<tr><td>2️⃣ عبر ملفات الترويسة</td><td>نستدعي الدالة ونمرر القيم <b>بدون ما نعرف تفاصيل تنفيذها</b></td><td>دالة <code>pow()</code> بملف math.h</td></tr>
+</table></div>
+<hr class="rule">
+<h1 class="doc-h1">🧬 8 \| المبدأ الثالث: الوراثة (Inheritance)</h1>
+<p class="para">🍼 <b>بأبسط صورة:</b> صنف جديد <b>يرث</b> خصائص صنف موجود — مثل ولد يرث ملامح أبوه 👨‍👦.<br>📐 <b>التعريف الرسمي:</b> قدرة الصنف على <b>اشتقاق الخصائص والسمات من صنف آخر</b> — من <b>أهم ميزات OOP</b>.</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>المصطلح</th><th>شنو هو؟</th></tr>
+<tr><td>الصنف الأساسي (Super / Base)</td><td>اللي <b>ينطي</b> الخصائص</td></tr>
+<tr><td>الصنف الفرعي (Sub / Derived)</td><td>اللي <b>يرث</b> الخصائص</td></tr>
+</table></div>
+<p class="para">🐶 <b>مثال:</b> صنف Animal هو الأساسي ← ومنه اشتققنا Dog و Cat و Cow.<br>♻️ <b>الفائدة الكبرى — إعادة الاستخدام (Reusability):</b> إذا تريد تنشئ صنف جديد وموجود صنف جاهز بيه جزء من الكود المطلوب ← نشتق منه ونعيد استخدام <b>حقوله ودواله</b> بدل ما نكتب كل شي من الصفر.</p>
+<hr class="rule">
+<h1 class="doc-h1">⚙️ 9 \| مفهومان إضافيان — الربط الديناميكي + تمرير الرسائل</h1>
+<h2 class="doc-h2">🔄 الربط الديناميكي (Dynamic Binding)</h2>
+<p class="para">الكود اللي راح ينفَّذ استجابةً لاستدعاء دالة <b>يتقرر أثناء التشغيل (Runtime)</b> — مو وقت كتابة الكود. ولغة C++ توفر <b>الدوال الافتراضية (Virtual Functions)</b> لدعمه.</p>
+<h2 class="doc-h2">✉️ تمرير الرسائل (Message Passing)</h2>
+<p class="para">الكائنات تتواصل بإرسال واستقبال المعلومات. الرسالة للكائن = <b>طلب تنفيذ إجراء</b> ← تستدعي دالة بالكائن المستقبِل ← ترجع النتائج المطلوبة.<br><b>الرسالة تتكون من 3 أشياء:</b></p>
+<ol class="lst lst--num"><li>📛 اسم الكائن</li><li>🔧 اسم الدالة</li><li>📨 المعلومات المرسلة</li></ol>
+<hr class="rule">
+<h1 class="doc-h1">☕ 10 \| أول برنامج Java</h1>
+<pre class="code" dir="ltr"><code class="lang-java">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello World&quot;);
+    }
+}</code></pre>
+<p class="para"><b>شرح سطر بسطر:</b></p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>السطر</th><th>شنو يسوي؟</th></tr>
+<tr><td><code>public class HelloWorld {</code></td><td>تعريف صنف اسمه HelloWorld — و<code>public</code> يعني متاح للكل</td></tr>
+<tr><td><code>public static void main(String[] args) {</code></td><td>الدالة الرئيسية — <b>نقطة بداية تشغيل أي برنامج Java</b></td></tr>
+<tr><td><code>System.out.println(&quot;Hello World&quot;);</code></td><td>أمر الطباعة — يطبع النص على الشاشة</td></tr>
+<tr><td><code>{ }</code></td><td>كل قوس يفتح كتلة ولازم ينغلق</td></tr>
+</table></div>
+<hr class="rule">
+<h1 class="doc-h1">📊 11 \| الملخص الكبير — كل المحاضرة بجدول واحد</h1>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>المفهوم</th><th>الفكرة بسطر</th><th>المثال</th></tr>
+<tr><td>OOP 🌍</td><td>ربط البيانات مع دوالها بوحدة واحدة محمية</td><td>محاكاة كيانات العالم الحقيقي</td></tr>
+<tr><td>Class 🧱</td><td>مخطط / قالب — ما يحجز ذاكرة</td><td>مخطط بيت على ورق</td></tr>
+<tr><td>Object 🚙</td><td>نسخة حقيقية من الصنف — إلها ذاكرة وعنوان</td><td>البيت المبني من المخطط</td></tr>
+<tr><td>Encapsulation 🔐</td><td>تغليف البيانات مع دوالها بوحدة واحدة</td><td>أقسام الشركة</td></tr>
+<tr><td>Abstraction 🕶️</td><td>إظهار الأساسيات وإخفاء التفاصيل</td><td>سائق يستخدم الدواسات / pow()</td></tr>
+<tr><td>Inheritance 🧬</td><td>صنف يرث خصائص صنف آخر ← إعادة استخدام</td><td>Dog و Cat ← Animal</td></tr>
+<tr><td>Dynamic Binding 🔄</td><td>الكود المنفَّذ يتقرر أثناء التشغيل</td><td>الدوال الافتراضية Virtual</td></tr>
+<tr><td>Message Passing ✉️</td><td>تواصل الكائنات بطلبات تنفيذ إجراءات</td><td>كائن + دالة + معلومات</td></tr>
+</table></div>
+<hr class="rule">
+<h1 class="doc-h1">🗺️ 12 \| الخريطة الذهنية</h1>
+<details class="tg"><summary><span>🧬 OOP — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🎯 الهدف والمزايا</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>ربط البيانات مع دوالها ← حماية من الوصول الخارجي</li><li>أسرع • بنية واضحة • DRY • إعادة استخدام بكود أقل</li></ul></div></details>
+<details class="tg"><summary><span>🧱 الصنف والكائن</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>Class = مخطط ← بيانات أعضاء + دوال أعضاء ← لا ذاكرة عند التعريف</li><li>Object = نسخة ← ذاكرة وعنوان ← تتفاعل بالرسائل</li></ul></div></details>
+<details class="tg"><summary><span>🔐 التغليف والتجريد</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>Encapsulation: تغليف البيانات + دوالها بوحدة ← أقسام الشركة</li><li>Abstraction: أساسيات فقط ← سائق السيارة + pow() في math.h</li></ul></div></details>
+<details class="tg"><summary><span>🧬 الوراثة والتفاعل</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>Inheritance: فرعي ← أساسي ← إعادة استخدام (Dog ← Animal)</li><li>Dynamic Binding: القرار أثناء التشغيل ← Virtual Functions</li><li>Message Passing: كائن + دالة + معلومات</li></ul></div></details></div></details>
+<hr class="rule">
+<h1 class="doc-h1">❓ 13 \| أسئلة الامتحان — جاوب بنفسك ثم افتح الجواب</h1>
+<details class="tg"><summary><span>1️⃣ ما الهدف الرئيسي من البرمجة كائنية التوجه؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ ربط <b>البيانات</b> و<b>الدوال اللي تعمل عليها</b> معاً في وحدة واحدة — بحيث لا يستطيع أي جزء آخر من الكود الوصول للبيانات إلا عبر تلك الدوال.</p></div></details>
+<details class="tg"><summary><span>2️⃣ اذكر أربع مزايا لـ OOP واشرح معنى DRY.</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ أسرع وأسهل بالتنفيذ • بنية واضحة • DRY • إعادة استخدام بكود أقل ووقت أقصر. وDRY تعني Don&#x27;t Repeat Yourself — لا تكرر الكود.</p></div></details>
+<details class="tg"><summary><span>3️⃣ عرّف الصنف والكائن، وما الفرق بينهما من حيث الذاكرة؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ الصنف: نوع بيانات يعرّفه المستخدم (مخطط هندسي) — <b>لا تُخصَّص ذاكرة</b> عند تعريفه. الكائن: نسخة من الصنف — <b>تُخصَّص له ذاكرة وعنوان</b> عند إنشائه.</p></div></details>
+<details class="tg"><summary><span>4️⃣ بمثال صنف Car: حدد البيانات الأعضاء والدوال الأعضاء.</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ البيانات الأعضاء: عدد العجلات (4)، حد السرعة، المدى. الدوال الأعضاء: تطبيق الفرامل، زيادة السرعة.</p></div></details>
+<details class="tg"><summary><span>5️⃣ ما الفرق بين التغليف والتجريد؟ ادعم بمثال واقعي لكل منهما.</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ التغليف: ربط البيانات مع دوالها في وحدة واحدة مغلقة (مثال: أقسام الشركة). التجريد: إظهار الأساسيات وإخفاء التفاصيل (مثال: سائق يستخدم الدواسات دون معرفة المحرك).</p></div></details>
+<details class="tg"><summary><span>6️⃣ كيف يتحقق التجريد عبر الأصناف وعبر ملفات الترويسة؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ عبر الأصناف: بمحددات الوصول (Access Specifiers) اللي تقرر شنو يظهر للعالم الخارجي. وعبر ملفات الترويسة: نستدعي دالة مثل pow()‎ من math.h دون معرفة تفاصيل تنفيذها.</p></div></details>
+<details class="tg"><summary><span>7️⃣ عرّف الوراثة، وميّز بين الصنف الفرعي والأساسي، وما علاقتها بإعادة الاستخدام؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ الوراثة: اشتقاق صنف لخصائص صنف آخر. الأساسي (Super) ينطي الخصائص، والفرعي (Sub) يرثها. ولمن ننشئ صنف جديد نشتقه من صنف قائم ← نعيد استخدام حقوله ودواله (مثال: Dog و Cat و Cow ← Animal).</p></div></details>
+<details class="tg"><summary><span>8️⃣ ما الربط الديناميكي؟ وبمَ تدعمه C++؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ الكود اللي ينفَّذ استجابة لاستدعاء دالة يُقرَّر <b>أثناء التشغيل (Runtime)</b> — وتدعمه C++ بالدوال الافتراضية (Virtual Functions).</p></div></details>
+<details class="tg"><summary><span>9️⃣ ما مكونات الرسالة في تمرير الرسائل بين الكائنات؟</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><p class="para">✅ ثلاثة أشياء: اسم الكائن + اسم الدالة + المعلومات المرسلة.</p></div></details>
+<details class="tg"><summary><span>🔟 اكتب أول برنامج Java يطبع Hello World.</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><pre class="code" dir="ltr"><code class="lang-java">public class HelloWorld {
+public static void main(String[] args) {
+System.out.println(&quot;Hello World&quot;);
+}
+}</code></pre></div></details>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ds-t3.html">→ السابقة: نظري 03</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ds-p2.html">التالية: عملي 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

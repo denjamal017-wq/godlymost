@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 01 — مدخل | GODLY MUST</title>
+<meta name="description" content="مدخل — المعمارية مقابل التنظيم — Lab 1: Architecture vs Organization · تركيب ومعمارية الحاسوب">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">COMPUTER ORGANIZATION & ARCHITECTURE</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 01</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">مدخل</h1>
+    <div class="doc__en mono" dir="ltr">المعمارية مقابل التنظيم — Lab 1: Architecture vs Organization</div>
+    <div class="doc__teach">👤 مختبر تركيب الحاسوب · تركيب ومعمارية الحاسوب</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">🔬</span><div class="callout__body"><p class="para"><b>التجربة الأولى — مختبر</b><br>Lab 1: Introduction — Computer Organization and Architecture<br><i>مختبر تركيب ومعمارية الحاسوب — كلية الهندسة</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس التجربة</h2>
+<ol class="lst lst--num"><li>معمارية الحاسوب (Architecture) — التعريف</li><li>تنظيم الحاسوب (Organization) — التعريف</li><li>لماذا التمييز بينهما مهم؟</li><li>مثال عائلة Intel x86</li><li>مثال IBM System/370</li><li>التدرج الهرمي للذاكرة (Memory Hierarchy)</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ معمارية الحاسوب (Architecture) — التعريف</h3>
+<p class="para">🌱 <b>معمارية الحاسوب (Computer Architecture):</b> هي خصائص النظام <b>الظاهرة للمبرمج</b> — أو بتعبير أدق: الخصائص التي لها <b>تأثير مباشر على التنفيذ المنطقي للبرنامج</b>.<br>🌿 تشمل المعمارية:</p>
+<ul class="lst"><li><b>مجموعة التعليمات (Instruction Set)</b></li><li><b>عدد البتات المستخدمة لتمثيل البيانات</b></li><li><b>آليات الإدخال والإخراج (I/O Mechanisms)</b></li><li><b>تقنيات العنونة (Addressing Techniques)</b></li></ul>
+<p class="para">🌳 <b>مثال:</b> هل توجد تعليمة جمع (Add Instruction) ضمن مجموعة التعليمات أم لا؟ — هذا قرار <b>معماري</b> يهم المبرمج مباشرة.</p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ تنظيم الحاسوب (Organization) — التعريف</h3>
+<p class="para">🌱 <b>تنظيم الحاسوب (Computer Organization):</b> هو <b>كيفية تطبيق</b> الخصائص المعمارية فعلياً — الوحدات التشغيلية وترابطاتها التي تحقق المواصفات المعمارية.<br>🌿 يشمل التنظيم:</p>
+<ul class="lst"><li><b>إشارات التحكم (Control Signals)</b></li><li><b>واجهات التخاطب بين الحاسوب والأطراف الطرفية (Interfaces)</b></li><li><b>تقنية الذاكرة المستخدمة (Memory Technology)</b></li></ul>
+<p class="para">🌳 <b>مثال:</b> هل توجد <b>وحدة ضرب عتادية (Hardware Multiply Unit)</b>، أم يُنفَّذ الضرب برمجياً بآلية <b>الجمع المتكرر</b>؟ — هذا قرار <b>تنظيمي</b> لا يراه المبرمج.</p>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ لماذا التمييز بينهما مهم؟</h3>
+<p class="para">🌱 التمييز بين المعمارية والتنظيم <b>مهم جداً</b>: معمارية واحدة يمكن أن تعيش عبر أجيال عديدة من الحاسبات بتنظيمات مختلفة تماماً — البرامج تبقى تعمل، وما يتغير فقط هو السرعة والكلفة.<br>🌿 <b>بجملة واحدة:</b> المعمارية = <b>شنو</b> النظام يسوي للمبرمج، التنظيم = <b>شلون</b> النظام يسويه داخلياً.</p>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ مثال عائلة Intel x86</h3>
+<p class="para">🌱 عائلة <b>Intel x86</b> مثال حي: موديلات مختلفة من المعالجات تتشارك <b>نفس المعمارية الأساسية</b> عبر أجيال متعددة، مع اختلاف التنظيم الداخلي من جيل لآخر.<br>🌿 <b>النمط المحمي (Protected Mode):</b> أُضيفت الحماية (Protection) إلى المعمارية الأساسية كتوسعة معمارية ظاهرة للبرمجيات.<br>🌿 <b>تطور العائلة عبر الزمن:</b></p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>المعالج</th><th>سنة الإصدار</th><th>ملاحظة</th></tr>
+<tr><td>8086</td><td>1978</td><td>بداية العائلة — 16-bit</td></tr>
+<tr><td>80286</td><td>1982</td><td>توسعة العنونة والحماية</td></tr>
+<tr><td>80386</td><td>1985</td><td>الانتقال إلى 32-bit</td></tr>
+<tr><td>80486</td><td>1989</td><td>تكامل أعلى وكاش داخلي</td></tr>
+<tr><td>Pentium</td><td>1993</td><td>بداية سلسلة Pentium</td></tr>
+<tr><td>Pentium Pro / II</td><td>1995 / 1997</td><td>تنفيذ متقدم للتعليمات</td></tr>
+<tr><td>Core / Core 2 / Core i7</td><td>2006 ←</td><td>الأجيال الحديثة متعددة الأنوية</td></tr>
+</table></div>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ مثال IBM System/370</h3>
+<p class="para">🌱 عائلة <b>IBM System/370</b> طُرحت عام <b>1970</b> بعدة موديلات بتطبيقات (Implementations) مختلفة:</p>
+<ul class="lst"><li>مجموعة التعليمات <b>متشابهة تقريباً</b> عبر السلسلة كلها</li><li>الزبون يقدر يشتري موديلاً أبطأ وأرخص، وعند الترقية لموديل أسرع <b>يحتفظ ببرامجه</b> كما هي</li><li>الفروقات المعمارية بين الموديلات كانت <b>غير مرئية للزبون</b> — الاختلاف فقط بالسرعة والسعر</li></ul>
+<p class="para">🌳 هذه بالضبط فائدة فصل المعمارية عن التنظيم: <b>توافقية البرامج (Compatibility)</b> عبر الأجيال.</p>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ التدرج الهرمي للذاكرة (Memory Hierarchy)</h3>
+<p class="para">🌱 الذاكرة داخل الحاسوب ليست طبقة واحدة بل <b>هرم</b>: كلما اقتربنا من المعالج صارت الذاكرة <b>أسرع وأغلى وأصغر</b>، وكلما ابتعدنا صارت <b>أبطأ وأرخص وأكبر</b>.</p>
+<figure class="fig"><img src="assets/ca-memhier.jpg" alt="هرم الذاكرة: من السجلات داخل المعالج حتى التخزين الخارجي — من الملزمة" loading="lazy"><figcaption>هرم الذاكرة: من السجلات داخل المعالج حتى التخزين الخارجي — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ المعمارية مقابل التنظيم</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الوجه</th><th>المعمارية (Architecture)</th><th>التنظيم (Organization)</th></tr>
+<tr><td>السؤال</td><td>شنو النظام يسوي؟</td><td>شلون ينفّذ داخلياً؟</td></tr>
+<tr><td>يراها</td><td>المبرمج</td><td>مصمم العتاد</td></tr>
+<tr><td>أمثلة</td><td>مجموعة التعليمات، عدد البتات، العنونة</td><td>إشارات التحكم، الواجهات، تقنية الذاكرة</td></tr>
+<tr><td>مثال الضرب</td><td>هل توجد تعليمة ضرب؟</td><td>وحدة ضرب عتادية أم جمع متكرر؟</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🏛️ معمارية × تنظيم — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>👁️ المعمارية (ظاهرة للمبرمج)</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>مجموعة التعليمات + عدد البتات + I/O + العنونة</li><li>مثال: وجود تعليمة Add من عدمه</li><li>Protected Mode توسعة معمارية</li></ul></div></details>
+<details class="tg"><summary><span>🔧 التنظيم (التنفيذ الداخلي)</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>إشارات التحكم + الواجهات + تقنية الذاكرة</li><li>مثال: وحدة ضرب عتادية أم جمع متكرر</li><li>IBM System/370: نفس المعمارية بموديلات مختلفة السرعة والسعر</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>عرّف معمارية الحاسوب واذكر أربعة عناصر تابعة لها.</li><li>عرّف تنظيم الحاسوب واذكر ثلاثة عناصر تابعة له.</li><li>علّل: التمييز بين المعمارية والتنظيم مهم جداً — استشهد بمثال عائلة x86 أو System/370.</li><li>هل وجود تعليمة ضرب ضمن المعالج قرار معماري أم تنظيمي؟ وهل وجود وحدة ضرب عتادية قرار معماري أم تنظيمي؟ وضّح إجابتك.</li><li>اشرح فكرة التدرج الهرمي للذاكرة وما العلاقة بين قرب الطبقة من المعالج وسرعتها وسعتها.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ca-t3.html">→ السابقة: نظري 03</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ca-p2.html">التالية: عملي 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

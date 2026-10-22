@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 01 — أنظمة العد والأعداد الموقعة | GODLY MUST</title>
+<meta name="description" content="أنظمة العد والأعداد الموقعة — Numbering Systems & Signed Numbers · تركيب ومعمارية الحاسوب">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">COMPUTER ORGANIZATION & ARCHITECTURE</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 01</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">أنظمة العد والأعداد الموقعة</h1>
+    <div class="doc__en mono" dir="ltr">Numbering Systems & Signed Numbers</div>
+    <div class="doc__teach">👤 م. رسل العبيدي · تركيب ومعمارية الحاسوب</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📙</span><div class="callout__body"><p class="para"><b>المحاضرة الأولى — نظري</b><br>طرائق تخزين المعلومات في الحاسوب: أنظمة العد، التحويل بينها، والتمثيل الثنائي للأعداد الموقعة<br><i>م. رسل العبيدي — كلية الهندسة</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>أنظمة العد والترميز الثنائي (Numbering Systems)</li><li>جداول التحويل: ثنائي / عشري / ست عشري</li><li>التحويل من وإلى الست عشري (Hexadecimal)</li><li>تمثيل الأعداد الموقعة — الطرائق الثلاث</li><li>الإشارة والقيمة (Sign &amp; Value)</li><li>المتمم الواحدي (1&#x27;s Complement)</li><li>المتمم الثنائي (2&#x27;s Complement)</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ أنظمة العد والترميز الثنائي</h3>
+<p class="para">🌱 الحاسوب يخزن كل شيء — أرقاماً وحروفاً وتعليمات — بصيغة <b>ثنائية (Binary)</b>: صفر وواحد فقط. لذلك أول خطوة بفهم تركيب الحاسوب هي إتقان أنظمة العد والتحويل بينها.<br>🌿 <b>نظام العد الثنائي</b> نظام <b>موضعي (Positional)</b>: كل بت (Bit) له <b>وزن</b> حسب موقعه، والوزن عبارة عن قوى العدد 2. مثال الملزمة — العدد <span class="math-tex">10110110_2</span>:</p>
+<div class="math-tex math-tex--display">10110110_2 = 1\times2^7 + 0\times2^6 + 1\times2^5 + 1\times2^4 + 0\times2^3 + 1\times2^2 + 1\times2^1 + 0\times2^0 = 182</div>
+<p class="para">🌿 البت الأيسر يُسمى <b>البت الأكثر دلالة (MSB)</b> ووزنه الأكبر، والأيمن <b>البت الأقل دلالة (LSB)</b>.<br>🌳 بلغات البرمجة يُكتب العدد الثنائي بالبادئة <code>0b</code> مثل <code>0b1101</code> حتى يتميز عن العشري.</p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ جداول التحويل: ثنائي / عشري / ست عشري</h3>
+<p class="para">🌱 القاعدة الذهبية: <b>كل 4 بتات ثنائية = رقم ست عشري واحد</b> — لذلك الست عشري (Hex) هو الاختصار العملي لكتابة القيم الثنائية الطويلة.</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>عشري</th><th>ثنائي</th><th>ست عشري</th><th>عشري</th><th>ثنائي</th><th>ست عشري</th></tr>
+<tr><td>0</td><td>0000</td><td>0</td><td>8</td><td>1000</td><td>8</td></tr>
+<tr><td>1</td><td>0001</td><td>1</td><td>9</td><td>1001</td><td>9</td></tr>
+<tr><td>2</td><td>0010</td><td>2</td><td>10</td><td>1010</td><td>A</td></tr>
+<tr><td>3</td><td>0011</td><td>3</td><td>11</td><td>1011</td><td>B</td></tr>
+<tr><td>4</td><td>0100</td><td>4</td><td>12</td><td>1100</td><td>C</td></tr>
+<tr><td>5</td><td>0101</td><td>5</td><td>13</td><td>1101</td><td>D</td></tr>
+<tr><td>6</td><td>0110</td><td>6</td><td>14</td><td>1110</td><td>E</td></tr>
+<tr><td>7</td><td>0111</td><td>7</td><td>15</td><td>1111</td><td>F</td></tr>
+</table></div>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ التحويل من وإلى الست عشري</h3>
+<p class="para">🌱 <b>من ثنائي إلى ست عشري:</b> جمّع البتات أربعات بدءاً من اليمين، ثم استبدل كل مجموعة برقمها الست عشري. مثال الملزمة:</p>
+<div class="math-tex math-tex--display">\underbrace{1111}_{F}\;\underbrace{1101}_{D}\;\underbrace{0011}_{3}\;\underbrace{0011}_{3} \;\;\Rightarrow\;\; 1111110100110011_2 = FD33_{16}</div>
+<p class="para">🌿 <b>من ست عشري إلى عشري:</b> اضرب كل رقم بوزنه (قوى 16) واجمع — مثال:</p>
+<div class="math-tex math-tex--display">7C3B_{16} = 7\times16^3 + 12\times16^2 + 3\times16^1 + 11\times16^0 = 31803</div>
+<p class="para">🌿 <b>من عشري إلى ست عشري:</b> اقسم على 16 وسجّل البواقي — مثال الملزمة: <span class="math-tex">204 \div 16 = 12</span> والباقي 12 ← <span class="math-tex">204 = CC_{16}</span> (لأن 12 = C).<br>🌳 تُكتب القيم الست عشرية بالبادئة <code>0x</code> مثل <code>0xFD33</code> أو باللاحقة <code>h</code> مثل <code>FD33h</code>.</p>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ تمثيل الأعداد الموقعة — الطرائق الثلاث</h3>
+<p class="para">🌱 الأعداد الموجبة تُخزَّن كما هي بالثنائي، لكن <b>السالبة</b> تحتاج طريقة تمثيل. الملزمة تعرض <b>ثلاث طرائق</b>:</p>
+<ul class="lst"><li><b>الإشارة والقيمة (Sign &amp; Value):</b> أيسر بت (MSB) يمثل الإشارة — 0 موجب، 1 سالب — والباقي هو مقدار العدد.</li><li><b>المتمم الواحدي (1&#x27;s Complement):</b> اقلب كل البتات (كل 1 تصبح 0 وبالعكس).</li><li><b>المتمم الثنائي (2&#x27;s Complement):</b> اقلب كل البتات ثم <b>أضف 1</b> — وهي <b>الطريقة الأكثر استخداماً</b> في الأنظمة الحاسوبية للأعداد الموقعة.</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ الإشارة والقيمة (Sign &amp; Value)</h3>
+<p class="para">🌱 الـMSB يحدد الإشارة فقط، وبقية البتات تحمل المقدار نفسه:</p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>القيمة الثنائية</th><th>المعنى</th></tr>
+<tr><td>0011</td><td><span class="math-tex">+3</span></td></tr>
+<tr><td>1011</td><td><span class="math-tex">-3</span></td></tr>
+<tr><td>01111111</td><td><span class="math-tex">+127</span></td></tr>
+<tr><td>11111111</td><td><span class="math-tex">-127</span></td></tr>
+</table></div>
+<p class="para">🌿 سهلة الفهم للإنسان، لكنها غير عملية للحاسوب: الجمع والطرح يحتاجان منطقاً خاصاً بالإشارات، ويوجد <b>تمثيلان للصفر</b> (<span class="math-tex">+0</span> و <span class="math-tex">-0</span>).</p>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ المتمم الواحدي (1&#x27;s Complement)</h3>
+<p class="para">🌱 <b>القاعدة:</b> اقلب كل بت — كل 1 تصبح 0 وكل 0 تصبح 1 — والبت الأيسر يبقى دالاً على الإشارة.<br>🌿 أمثلة الملزمة:</p>
+<ul class="lst"><li><span class="math-tex">1011</span> ‏→‏ <span class="math-tex">0100</span></li><li><span class="math-tex">0110\;(+6)</span> ‏→‏ <span class="math-tex">1001\;(-6)</span></li><li><span class="math-tex">1111\;(-0)</span> ‏→‏ <span class="math-tex">0000\;(+0)</span> — لاحظ مشكلة <b>الصفر السالب</b>: للصفر تمثيلان أيضاً في هذه الطريقة.</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ المتمم الثنائي (2&#x27;s Complement)</h3>
+<p class="para">🌱 <b>القاعدة:</b> اقلب كل البتات (متمم واحدي) ثم <b>أضف 1</b> إلى الناتج. هذه الطريقة المعتمدة فعلياً لتمثيل السالب في المعالجات.<br>🌿 أمثلة الملزمة:</p>
+<ul class="lst"><li><span class="math-tex">0110\;(+6)</span> ‏→‏ قلب ‏<span class="math-tex">1001</span> ‏+ 1 ‏=‏ <span class="math-tex">1010\;(-6)</span></li><li><span class="math-tex">1000\;(-8)</span> ‏→‏ قلب ‏<span class="math-tex">0111</span> ‏+ 1 ‏=‏ <span class="math-tex">1000</span> — حالة خاصة: العدد يعود لنفسه (أصغر قيمة سالبة بـ4 بتات).</li></ul>
+<p class="para">🌿 <b>مثال شامل:</b> جد المتمم الثنائي للعدد <span class="math-tex">01011100_2</span>:</p>
+<div class="math-tex math-tex--display">01011100 \;\xrightarrow{\text{قلب}}\; 10100011 \;\xrightarrow{+1}\; 10100100</div>
+<p class="para">🌳 <b>للتأكد:</b> مجموع العدد ومتممه الثنائي يساوي صفراً (مع إهمال الحمل النهائي) — لهذا السبب تُستخدم هذه الطريقة في العتاد: الجمع والطرح يصبحان عملية واحدة.</p>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ مقارنة طرائق تمثيل الأعداد السالبة</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الطريقة</th><th>القاعدة</th><th>مثال: تمثيل <span class="math-tex">-6</span></th><th>ملاحظة</th></tr>
+<tr><td>الإشارة والقيمة</td><td>MSB للإشارة والباقي مقدار</td><td><span class="math-tex">1110</span></td><td>سهلة للإنسان، صعبة على العتاد</td></tr>
+<tr><td>المتمم الواحدي</td><td>قلب كل البتات</td><td><span class="math-tex">1001</span></td><td>تمثيلان للصفر (<span class="math-tex">+0</span> و <span class="math-tex">-0</span>)</td></tr>
+<tr><td>المتمم الثنائي</td><td>قلب + إضافة 1</td><td><span class="math-tex">1010</span></td><td>الأكثر استخداماً — جمع وطرح بعملية واحدة</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🧮 طرائق تخزين المعلومات — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🔢 أنظمة العد</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>ثنائي: موضعي بأوزان قوى 2 — <span class="math-tex">10110110_2 = 182</span></li><li>ست عشري: كل 4 بتات = رقم واحد — <span class="math-tex">1111110100110011_2 = FD33_{16}</span></li><li><span class="math-tex">204 = CC_{16}</span> بالقسمة على 16 وتسجيل البواقي</li></ul></div></details>
+<details class="tg"><summary><span>➕➖ الأعداد الموقعة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>إشارة وقيمة: MSB للإشارة — <span class="math-tex">1011 = -3</span></li><li>متمم واحدي: قلب البتات — <span class="math-tex">0110 \to 1001</span> (مشكلة الصفر السالب)</li><li>متمم ثنائي: قلب + 1 — <span class="math-tex">0110 \to 1010</span> (المعتمد بالمعالجات)</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>حوّل العدد الثنائي <span class="math-tex">10110110_2</span> إلى عشري موضحاً أوزان المواقع.</li><li>حوّل <span class="math-tex">1111110100110011_2</span> إلى ست عشري، ثم اشرح لماذا يُستخدم الست عشري اختصاراً للثنائي.</li><li>حوّل العدد العشري 204 إلى ست عشري بطريقة القسمة على 16.</li><li>قارن بين طرائق تمثيل الأعداد السالبة الثلاث مع مثال واحد لكل منها.</li><li>لماذا يُعد المتمم الثنائي الأكثر استخداماً في الأنظمة الحاسوبية؟ اذكر مشكلتين بالطريقتين الأخريين.</li><li>جد المتمم الثنائي للعدد <span class="math-tex">01011100_2</span> خطوة بخطوة.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <span></span>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ca-t2.html">التالية: نظري 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

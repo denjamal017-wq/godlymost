@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 02 — أنواع الذواكر | GODLY MUST</title>
+<meta name="description" content="أنواع الذواكر — Lab 2: Types of Memories · تركيب ومعمارية الحاسوب">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">COMPUTER ORGANIZATION & ARCHITECTURE</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 02</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">أنواع الذواكر</h1>
+    <div class="doc__en mono" dir="ltr">Lab 2: Types of Memories</div>
+    <div class="doc__teach">👤 مختبر تركيب الحاسوب · تركيب ومعمارية الحاسوب</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">🔬</span><div class="callout__body"><p class="para"><b>التجربة الثانية — مختبر</b><br>Lab 2: Types of Memories — تصنيف الذواكر وطرائق الوصول<br><i>مختبر تركيب ومعمارية الحاسوب — كلية الهندسة</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس التجربة</h2>
+<ol class="lst lst--num"><li>تعريف ذاكرة الحاسوب</li><li>معايير التمييز بين أجهزة الذاكرة</li><li>الوصول التسلسلي (Sequential Access)</li><li>الوصول المباشر (Direct Access)</li><li>الوصول العشوائي (Random Access)</li><li>الوصول الترابطي (Associative Access)</li><li>RAM وأنواعها وROM</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ تعريف ذاكرة الحاسوب</h3>
+<p class="para">🌱 <b>ذاكرة الحاسوب (Computer Memory):</b> أي جهاز فيزيائي قادر على <b>تخزين المعلومات</b> — بشكل <b>مؤقت</b> مثل RAM أو بشكل <b>دائم</b> مثل ROM.<br>🌿 <b>الذاكرة الرئيسية / الأولية (Primary / Main Memory):</b> الذاكرة التي يستطيع المعالج (CPU) الوصول إليها <b>مباشرة</b>.<br>🌳 أجهزة الذاكرة تتواجد على اللوحة الأم (Motherboard) ووحدات التخزين — وتتنوع بشكل كبير كما سنرى.</p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ معايير التمييز بين أجهزة الذاكرة</h3>
+<p class="para">🌱 تختلف أجهزة الذاكرة عن بعضها بعدة معايير:</p>
+<ul class="lst"><li><b>الموقع (Location):</b> ذاكرة داخلية على متن المعالج (Onboard) مثل <b>السجلات داخل CPU</b> و<b>الكاش (Cache)</b>، مقابل تخزين خارجي مثل الفلوبي والقرص الصلب وCD-ROM</li><li><b>السعة (Capacity):</b> حجم الكلمة (Word Size) بالبايتات</li><li><b>السرعة (Speed):</b> زمن الوصول (Access Time)</li><li><b>وحدة النقل (Unit of Transfer):</b> كلمات أو بايتات</li><li><b>طريقة الوصول (Access Method):</b> تسلسلي، مباشر، عشوائي، ترابطي — وهي محور هذه التجربة</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ الوصول التسلسلي (Sequential Access)</h3>
+<p class="para">🌱 <b>الوصول التسلسلي:</b> الوصول للبيانات يتم <b>بالترتيب واحداً تلو الآخر</b> — مثاله الكلاسيكي <b>الشريط المغناطيسي (Magnetic Tape)</b>.<br>🌿 سريع جداً عند قراءة بيانات متتالية (السجل 6 ثم 7 الذي يليه مباشرة)، لكنه <b>بطيء جداً</b> عند البحث عن بيانات غير متسلسلة لأننا مضطرون لتمرير ما قبلها أولاً.</p>
+<figure class="fig"><img src="assets/ca-seqacc.jpg" alt="مثال الوصول التسلسلي على الشريط المغناطيسي — من الملزمة" loading="lazy"><figcaption>مثال الوصول التسلسلي على الشريط المغناطيسي — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ الوصول المباشر (Direct Access)</h3>
+<p class="para">🌱 <b>الوصول المباشر:</b> الانتقال <b>مباشرة إلى جوار (Vicinity)</b> البيانات المطلوبة، ثم <b>بحث تسلسلي قصير</b> للوصول إلى الموضع النهائي — مثاله <b>الأقراص (Disks)</b>.<br>🌿 أسرع بكثير من التسلسلي لأننا نقفز قرب الهدف مباشرة بدل المرور بكل ما قبله.</p>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ الوصول العشوائي (Random Access)</h3>
+<p class="para">🌱 <b>الوصول العشوائي (Random Access):</b> كل عنوان ذاكرة يمكن الوصول إليه <b>مباشرة وبزمن ثابت</b> لا يعتمد على موقع البيانات — وهذا هو مبدأ عمل <b>RAM</b> (Random Access Memory).<br>🌳 التسمية &quot;عشوائي&quot; هنا تعني حرية الوصول لأي عنوان مباشرة — وليس العشوائية بمعنى الفوضى.</p>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ الوصول الترابطي (Associative Access)</h3>
+<p class="para">🌱 <b>الوصول الترابطي:</b> استرجاع البيانات يتم بالبحث عن <b>محتواها / معناها</b> وليس بعنوانها — وتُفتَّش الذاكرة <b>كلها دفعة واحدة</b> خلال دورة ساعة واحدة. مثاله <b>الكاش (Cache)</b>.<br>🌿 <b>مثال توضيحي من الملزمة:</b> سؤال &quot;ما هي عاصمة العراق؟&quot; يسترجع الجواب &quot;بغداد&quot; مباشرة — البحث تم بالمعنى لا بالعنوان.</p>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ RAM وأنواعها وROM</h3>
+<p class="para">🌱 <b>RAM (ذاكرة الوصول العشوائي):</b> ذاكرة القراءة والكتابة المتطايرة — أنواعها:</p>
+<ul class="lst"><li><b>SRAM (Static RAM):</b> ثابتة — سريعة ولا تحتاج تحديثاً</li><li><b>DRAM (Dynamic RAM):</b> ديناميكية — تحتاج تحديثاً دورياً</li><li><b>SDRAM (Synchronous DRAM):</b> ديناميكية متزامنة مع نبضات الساعة</li></ul>
+<p class="para">🌿 <b>ROM (ذاكرة القراءة فقط — Read-Only Memory):</b></p>
+<ul class="lst"><li><b>غير متطايرة (Nonvolatile):</b> تحتفظ بمحتواها بعد انقطاع الطاقة</li><li><b>ضرورية لإقلاع الحاسوب (Booting):</b> تخزن تعليمات بدء التشغيل الأولى</li></ul>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ طرائق الوصول الأربعة</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الطريقة</th><th>الفكرة</th><th>المثال</th></tr>
+<tr><td>تسلسلي Sequential</td><td>بالترتيب واحداً تلو الآخر</td><td>الشريط المغناطيسي</td></tr>
+<tr><td>مباشر Direct</td><td>قفزة قرب الهدف + بحث تسلسلي قصير</td><td>الأقراص</td></tr>
+<tr><td>عشوائي Random</td><td>أي عنوان مباشرة وبزمن ثابت</td><td>RAM</td></tr>
+<tr><td>ترابطي Associative</td><td>بحث بالمحتوى دفعة واحدة</td><td>الكاش</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ RAM مقابل ROM</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>الوجه</th><th>RAM</th><th>ROM</th></tr>
+<tr><td>الوظيفة</td><td>تخزين مؤقت أثناء العمل</td><td>تخزين دائم</td></tr>
+<tr><td>التطاير</td><td>متطايرة — تفقد محتواها بلا طاقة</td><td>غير متطايرة</td></tr>
+<tr><td>الاستخدام</td><td>ذاكرة العمل الرئيسية</td><td>إقلاع الحاسوب (Boot)</td></tr>
+<tr><td>الأنواع</td><td>SRAM, DRAM, SDRAM</td><td>—</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>💽 أنواع الذواكر — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>📏 معايير التمييز</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>الموقع: سجلات وكاش داخلية مقابل تخزين خارجي</li><li>السعة، السرعة (زمن الوصول)، وحدة النقل، طريقة الوصول</li></ul></div></details>
+<details class="tg"><summary><span>🚪 طرائق الوصول</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تسلسلي: شريط مغناطيسي — سريع للمتتالي وبطيء للبحث</li><li>مباشر: أقراص — قفزة للجوار ثم بحث قصير</li><li>عشوائي: RAM — أي عنوان مباشرة بزمن ثابت</li><li>ترابطي: كاش — بحث بالمحتوى (عاصمة العراق ← بغداد)</li></ul></div></details>
+<details class="tg"><summary><span>🧷 RAM وROM</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>RAM متطايرة: SRAM وDRAM وSDRAM</li><li>ROM غير متطايرة وضرورية للإقلاع</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>عرّف ذاكرة الحاسوب وما الفرق بين التخزين المؤقت والدائم؟ وما المقصود بالذاكرة الأولية؟</li><li>اذكر خمسة معايير تختلف بها أجهزة الذاكرة مع مثال لكل معيار.</li><li>قارن بين طرائق الوصول الأربع (تسلسلي، مباشر، عشوائي، ترابطي) مع مثال لكل منها.</li><li>لماذا يكون البحث بطيئاً في الشريط المغناطيسي عند عدم تسلسل البيانات؟</li><li>اشرح فكرة الوصول الترابطي مستعيناً بمثال &quot;عاصمة العراق&quot;.</li><li>عدّد أنواع RAM الثلاثة، وبين لماذا تُعد ROM ضرورية لإقلاع الحاسوب.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ca-p1.html">→ السابقة: عملي 01</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <span></span>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

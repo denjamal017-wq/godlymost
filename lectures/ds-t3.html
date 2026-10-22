@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 03 — مراجعة بايثون | GODLY MUST</title>
+<meta name="description" content="مراجعة بايثون — Python Review · هياكل البيانات">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">DATA STRUCTURES & ALGORITHMS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 03</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">مراجعة بايثون</h1>
+    <div class="doc__en mono" dir="ltr">Python Review</div>
+    <div class="doc__teach">👤 م.م عباس كامل · هياكل البيانات</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📙</span><div class="callout__body"><p class="para"><b>المحاضرة الثالثة — نظري</b><br>Python Review — مراجعة بايثون<br><i>م.م عباس كامل — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>مميزات بايثون واستخداماتها</li><li>المتغيرات وأنواع البيانات + قواعد التسمية</li><li>التعليقات (Comments)</li><li>الجمل الشرطية if / elif / else</li><li>حلقات for + break / continue</li><li>حلقات while</li><li>الحلقات المتداخلة (الأعداد الأولية)</li><li>السلاسل النصية ودوالها</li><li>إدخال المستخدم</li></ol>
+<div class="callout"><span class="callout__icon">📌</span><div class="callout__body"><p class="para"><b>ملاحظة من الملزمة:</b> الدوال (Functions) ستُشرح في المحاضرة القادمة</p></div></div>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ مميزات بايثون واستخداماتها</h3>
+<p class="para">🌱 <b>المميزات:</b></p>
+<ul class="lst"><li>لغة سهلة التعلم وكائنية التوجه (OOP)</li><li>صياغة واضحة ومقروءة (Readable Syntax)</li><li>مكتبة قياسية غنية</li><li>تعمل على أنظمة تشغيل متعددة (Cross-Platform)</li></ul>
+<p class="para">🌿 <b>الاستخدامات:</b> تطبيقات الويب • تطوير الألعاب • تعلم الآلة وتحليل البيانات • <b>أدوات الاختراق والأمن</b></p>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ المتغيرات وأنواع البيانات</h3>
+<p class="para">🌱 <b>الأنواع الأساسية:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">x = 5            # int   — عدد صحيح
+y = 3.14         # float — عدد عشري
+name = &quot;Ali&quot;     # str   — نص
+is_valid = True  # bool  — منطقي (صح/خطأ)</code></pre>
+<p class="para">🌿 <b>قواعد تسمية المتغيرات:</b></p>
+<ul class="lst"><li>يمكن أن تحتوي أحرفاً وأرقاماً وشرطة سفلية (_)</li><li><b>لا يمكن أن تبدأ برقم</b></li><li>حساسة لحالة الأحرف (case-sensitive): الاسم Name ≠ name</li></ul>
+<p class="para">🌳 <b>أمثلة التعيين — بايثون ديناميكية الأنواع:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">x = 10
+name = &quot;Ali&quot;
+total = 20.5
+x = &quot;Ali&quot;   # مسموح — نوع المتغير يتغير حسب القيمة</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ التعليقات (Comments)</h3>
+<pre class="code" dir="ltr"><code class="lang-python"># This is a comment   — تعليق بسطر واحد يبدأ بـ #
+
+&quot;&quot;&quot;
+This is a
+multiline comment
+&quot;&quot;&quot;                    — تعليق متعدد الأسطر (docstring)</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ الجمل الشرطية</h3>
+<p class="para">🌱 <b>if / else — فحص الزوجي والفردي:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">number = int(input(&quot;Enter a number: &quot;))
+if number % 2 == 0:
+    print(&quot;Even number&quot;)
+else:
+    print(&quot;Odd number&quot;)</code></pre>
+<p class="para">🌿 <b>elif والشروط المتداخلة — مصنّف الدرجات:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">score = 85
+if score &gt;= 90:
+    print(&quot;Grade: A&quot;)
+elif score &gt;= 80:
+    print(&quot;Grade: B&quot;)
+elif score &gt;= 70:
+    print(&quot;Grade: C&quot;)
+else:
+    print(&quot;Grade: F&quot;)</code></pre>
+<p class="para">🌳 عند score = 85 ← الشرط الأول لا يتحقق، الثاني يتحقق ← الناتج: <b>Grade: B</b></p>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ حلقات for</h3>
+<p class="para">🌱 <b>جمع الأعداد من 1 إلى 100:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">total = 0
+for i in range(1, 101):
+    total += i
+print(total)</code></pre>
+<p class="para">🌿 <b>break / continue — طباعة الأعداد الزوجية فقط من 1 إلى 10:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">for i in range(1, 11):
+    if i % 2 != 0:
+        continue   # تخطَّ الفردي
+    print(i)</code></pre>
+<p class="para">🌳 continue يتخطى التكرار الحالي ويكمل التالي؛ break يكسر الحلقة كلياً.</p>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ حلقات while</h3>
+<p class="para">🌱 <b>حساب مضروب العدد 5:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">n = 5
+fact = 1
+i = 1
+while i &lt;= 5:
+    fact *= i
+    i += 1
+print(fact)   # 120</code></pre>
+<p class="para">🌿 <b>while مع continue — تخطي مضاعفات 3 (من 0 إلى 9):</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">i = 0
+while i &lt; 10:
+    i += 1
+    if i % 3 == 0:
+        continue
+    print(i)</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ الحلقات المتداخلة — الأعداد الأولية من 2 إلى 50</h3>
+<p class="para">🌳 حلقة داخل حلقة: الخارجية تمر على كل عدد، والداخلية تختبر قابلية القسمة:</p>
+<pre class="code" dir="ltr"><code class="lang-python">for num in range(2, 51):
+    is_prime = True
+    for i in range(2, num):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num)</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">8️⃣ السلاسل النصية (Strings)</h3>
+<p class="para">🌱 <b>عمليات أساسية:</b></p>
+<pre class="code" dir="ltr"><code class="lang-python">text = &quot;Hello&quot; + &quot; &quot; + &quot;World&quot;   # دمج — &quot;Hello World&quot;
+print(text.upper())               # HELLO WORLD
+print(text.replace(&quot;World&quot;, &quot;Python&quot;))  # Hello Python</code></pre>
+<p class="para">🌿 <b>دوال السلاسل المذكورة بالمحاضرة:</b></p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>الدالة</b></th><th><b>الوظيفة</b></th><th><b>مثال</b></th><th><b>الناتج</b></th></tr>
+<tr><td>upper()</td><td>تحويل إلى أحرف كبيرة</td><td>&quot;hello&quot;.upper()</td><td>&quot;HELLO&quot;</td></tr>
+<tr><td>lower()</td><td>تحويل إلى أحرف صغيرة</td><td>&quot;HELLO&quot;.lower()</td><td>&quot;hello&quot;</td></tr>
+<tr><td>strip()</td><td>إزالة الفراغات من الطرفين</td><td>&quot;  hi  &quot;.strip()</td><td>&quot;hi&quot;</td></tr>
+<tr><td>replace()</td><td>استبدال نص بنص</td><td>&quot;Hello World&quot;.replace(&quot;World&quot;, &quot;Python&quot;)</td><td>&quot;Hello Python&quot;</td></tr>
+<tr><td>split()</td><td>تقسيم النص إلى قائمة</td><td>&quot;a,b,c&quot;.split(&quot;,&quot;)</td><td>\[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;\]</td></tr>
+<tr><td>find()</td><td>إيجاد موضع أول ظهور</td><td>&quot;hello&quot;.find(&quot;e&quot;)</td><td>1</td></tr>
+</table></div>
+<hr class="rule">
+<h3 class="doc-h3">9️⃣ إدخال المستخدم (User Input)</h3>
+<p class="para">🌱 input() تقرأ نصاً دائماً ← للأعداد نحوّلها بـ int():</p>
+<pre class="code" dir="ltr"><code class="lang-python">name = input(&quot;Enter your name: &quot;)
+age = int(input(&quot;Enter your age: &quot;))</code></pre>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ أنواع البيانات الأساسية</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>النوع</b></th><th><b>الوصف</b></th><th><b>مثال</b></th></tr>
+<tr><td>int</td><td>عدد صحيح</td><td>x = 5</td></tr>
+<tr><td>float</td><td>عدد عشري</td><td>y = 3.14</td></tr>
+<tr><td>str</td><td>نص</td><td>name = &quot;Ali&quot;</td></tr>
+<tr><td>bool</td><td>قيمة منطقية</td><td>is_valid = True</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ for vs while</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>for</b></th><th><b>while</b></th></tr>
+<tr><td>نمط الاستخدام في المحاضرة</td><td>عدد تكرارات معلوم عبر range()</td><td>تكرار بشرط متحقق</td></tr>
+<tr><td>مثال المحاضرة</td><td>جمع 1..100 • الزوجية 1..10 • الأولية 2..50</td><td>مضروب 5 • تخطي مضاعفات 3</td></tr>
+<tr><td>أدوات التحكم المشتركة</td><td>continue — تخطي التكرار الحالي</td><td>break — كسر الحلقة كلياً</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🐍 مراجعة بايثون — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>✨ المميزات والاستخدامات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>سهلة + OOP + صياغة مقروءة + مكتبة غنية + متعددة المنصات</li><li>ويب • ألعاب • تعلم آلة/بيانات • أدوات اختراق</li></ul></div></details>
+<details class="tg"><summary><span>📦 المتغيرات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>int / float / str / bool — كتابة ديناميكية (x=10 ثم x=&quot;Ali&quot;)</li><li>تسمية: أحرف/أرقام/_ • لا تبدأ برقم • حساسة للحالة</li></ul></div></details>
+<details class="tg"><summary><span>🔀 التحكم بالتدفق</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>if / elif / else ← مصنف الدرجات A/B/C/F</li><li>for + range ← جمع 1..100 \| continue للزوجية \| break للكسر</li><li>while بشرط ← مضروب 5 ← تخطي مضاعفات 3</li><li>متداخلة ← أعداد أولية 2..50</li></ul></div></details>
+<details class="tg"><summary><span>🔤 السلاسل والإدخال</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>دمج + upper + replace</li><li>دوال: upper • lower • strip • replace • split • find</li><li>input() ← نص ← int(input()) للأعداد</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>اذكر أربع مميزات للغة بايثون وأربعة من استخداماتها.</li><li>ما قواعد تسمية المتغيرات في بايثون؟ ولماذا يُعد السطر x = &quot;Ali&quot; بعد x = 10 صحيحاً؟</li><li>اكتب برنامجاً يفحص هل العدد المُدخل زوجي أم فردي.</li><li>اكتب مصنّف الدرجات باستخدام elif وحدد ناتجه عند score = 85.</li><li>اكتب حلقة for تجمع الأعداد من 1 إلى 100.</li><li>ما الفرق بين break و continue؟ ادعم بمثال من المحاضرة.</li><li>اكتب حلقة while تحسب مضروب العدد 5.</li><li>اشرح كيف تعمل الحلقات المتداخلة في برنامج الأعداد الأولية (2..50).</li><li>املأ: ناتج &quot;hello&quot;.find(&quot;e&quot;)‎ = ؟ وناتج &quot;a,b,c&quot;.split(&quot;,&quot;)‎ = ؟</li><li>لماذا نستخدم int(input())‎ بدل input()‎ عند قراءة عمر المستخدم؟</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ds-t2.html">→ السابقة: نظري 02</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ds-p1.html">التالية: عملي 01 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

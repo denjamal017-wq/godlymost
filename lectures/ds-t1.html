@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 01 — مدخل إلى هياكل البيانات والخوارزميات | GODLY MUST</title>
+<meta name="description" content="مدخل إلى هياكل البيانات والخوارزميات — Overview · هياكل البيانات">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">DATA STRUCTURES & ALGORITHMS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 01</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">مدخل إلى هياكل البيانات والخوارزميات</h1>
+    <div class="doc__en mono" dir="ltr">Overview</div>
+    <div class="doc__teach">👤 م.م عباس كامل · هياكل البيانات</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📘</span><div class="callout__body"><p class="para"><b>المحاضرة الأولى — نظري</b><br>Data Structures and Algorithms: An Overview<br><i>م.م عباس كامل — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>أهداف المحاضرة</li><li>المقدمة + التشبيه العملي (مكتب الملفات)</li><li>البيانات (Data)</li><li>هياكل البيانات (Data Structures)</li><li>الخوارزميات (Algorithms)</li><li>العلاقة بين الثلاثة + مثال تطبيقي</li><li>الفرق بين الخوارزمية والبرنامج</li><li>معايير اختيار بنية البيانات المناسبة</li><li>خصائص بنية البيانات الجيدة</li><li>فوائد تعلّم المادة + مخطط العلاقة النهائي</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ أهداف المحاضرة</h3>
+<ol class="lst lst--num"><li>تعريف الطلاب بأهمية المادة</li><li>شرح العلاقة بين البيانات وهياكل البيانات والخوارزميات</li><li>تجهيز الطلاب لفهم عميق للمفاهيم النظرية والعملية لاحقاً</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ المقدمة</h3>
+<p class="para">🌱 <b>الفكرة المركزية:</b> البيانات هي <b>المادة الخام</b>، والخوارزميات هي <b>الخطوات المنظمة لمعالجتها</b>، وهياكل البيانات هي <b>الطرق التي نستخدمها لتخزين البيانات بأسلوب منظم يُسهّل معالجتها</b>.<br>🌿 <b>التشبيه العملي (تنظيم الملفات في مكتبك):</b></p>
+<ul class="lst"><li><b>البيانات</b> = أوراق مبعثرة</li><li><b>هياكل البيانات</b> = أدراج ومجلدات لتنظيم الأوراق</li><li><b>الخوارزميات</b> = الخطوات التي تتبعها للعثور بسرعة على ملف محدد</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ البيانات (Data)</h3>
+<p class="para">🌱 <b>التعريف:</b> عناصر تمثل معلومات خاماً، مثل الأرقام أو الكلمات أو القياسات.<br>🌿 <b>أمثلة واقعية:</b> درجات الطلاب في الفصل • أسماء الموظفين في شركة.<br>🌳 <b>ملاحظة جوهرية:</b> البيانات وحدها <b>لا تكفي لحل المشكلات</b> — إذ تتطلب التنظيم والمعالجة.</p>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ هياكل البيانات (Data Structures)</h3>
+<p class="para">🌱 <b>التعريف:</b> طرق تنظيم البيانات لتسهيل الوصول إليها ومعالجتها.<br>🌿 <b>الأهمية:</b></p>
+<ol class="lst lst--num"><li>الوصول السريع إلى البيانات</li><li>الإدارة الفعالة للذاكرة</li><li>تسهيل عمليات الإضافة والحذف والبحث</li></ol>
+<p class="para">🌳 <b>أمثلة شائعة:</b> المصفوفة (Array) • القائمة المترابطة (Linked List) • المكدس (Stack) • الطابور (Queue) • الأشجار (Trees) • المخططات البيانية (Graphs)</p>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ الخوارزميات (Algorithms)</h3>
+<p class="para">🌱 <b>التعريف:</b> خطوات واضحة ومنظمة لمعالجة البيانات وحل المشكلات.<br>🌿 <b>خصائص الخوارزمية الجيدة:</b></p>
+<ol class="lst lst--num"><li><b>الوضوح والدقة</b></li><li><b>الكفاءة</b> (تحل المشكلة بسرعة)</li><li><b>الحتمية</b> (تتوقف بعد عدد محدود من الخطوات)</li><li><b>العمومية</b> (قابلة للتطبيق على مجموعات بيانات مختلفة)</li></ol>
+<p class="para">🌳 <b>مثال نظري — جمع ثلاثة أعداد:</b></p>
+<ol class="lst lst--num"><li>اقرأ العدد الأول والثاني والثالث</li><li>اجمعها معاً</li><li>اعرض النتيجة</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ العلاقة بين البيانات وهياكل البيانات والخوارزميات</h3>
+<p class="para">🌿 الثلاثي المتكامل:</p>
+<ul class="lst"><li><b>البيانات:</b> ما نريد معالجته</li><li><b>هياكل البيانات:</b> كيفية تخزين البيانات</li><li><b>الخوارزميات:</b> كيفية معالجة البيانات المخزنة</li></ul>
+<p class="para">🌳 <b>مثال تطبيقي:</b> قائمة درجات الطلاب = <b>بيانات</b> ← تخزينها في مصفوفة = <b>هيكل بيانات</b> ← العثور على أعلى درجة = <b>خوارزمية معالجة بيانات</b></p>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ الفرق بين الخوارزمية والبرنامج</h3>
+<ul class="lst"><li><b>الخوارزمية:</b> فكرة مجردة — وصف للخطوات اللازمة لحل مشكلة ما</li><li><b>البرنامج:</b> تطبيق عملي مكتوب بلغة برمجة يقوم بتنفيذ الخوارزمية</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">8️⃣ معايير اختيار بنية البيانات المناسبة</h3>
+<ul class="lst"><li><b>وقت التنفيذ:</b> هل نحتاج إلى السرعة أم البساطة؟</li><li><b>استهلاك الذاكرة:</b> بعض البنى تستهلك ذاكرة أقل من غيرها</li><li><b>سهولة العمليات:</b> مثل الإدراج والحذف والبحث</li></ul>
+<h3 class="doc-h3">9️⃣ خصائص بنية البيانات الجيدة</h3>
+<ol class="lst lst--num"><li>تتيح الوصول السريع إلى البيانات</li><li>تقلل من استهلاك الذاكرة</li><li>تسهّل تعديل البيانات (الإدراج/الحذف)</li><li>يمكن استخدامها في خوارزميات مختلفة</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">🔟 فوائد تعلّم هياكل البيانات والخوارزميات + العلاقة النهائية</h3>
+<ol class="lst lst--num"><li>تحسين أداء البرنامج وتقليل الوقت واستهلاك الذاكرة</li><li>حل المشكلات المعقدة بطريقة منظمة</li><li>تسهيل صيانة البرنامج وتطويره مستقبلاً</li></ol>
+<p class="para">🌳 <b>العلاقة النهائية:</b> البيانات ← تُنظَّم في هياكل بيانات ← هياكل البيانات تُسهّل عمل الخوارزميات ← الخوارزميات تتحول إلى برنامج عند كتابتها بلغة برمجة</p>
+<figure class="fig"><img src="assets/t1_relation.png" alt="مخطط العلاقة: Data ← Data Structures ← Algorithms ← Program — من الملزمة" loading="lazy"><figcaption>مخطط العلاقة: Data ← Data Structures ← Algorithms ← Program — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ البيانات vs هياكل البيانات vs الخوارزميات</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>العنصر</b></th><th><b>التعريف</b></th><th><b>الدور</b></th><th><b>تشبيه المكتب</b></th><th><b>مثال الدرجات</b></th></tr>
+<tr><td>البيانات Data</td><td>عناصر معلومات خام</td><td>ما نريد معالجته</td><td>أوراق مبعثرة</td><td>قائمة درجات الطلاب</td></tr>
+<tr><td>هياكل البيانات DS</td><td>طرق تنظيم البيانات</td><td>كيفية التخزين</td><td>أدراج ومجلدات</td><td>تخزينها في مصفوفة</td></tr>
+<tr><td>الخوارزميات</td><td>خطوات منظمة للمعالجة</td><td>كيفية المعالجة</td><td>خطوات العثور على ملف</td><td>إيجاد أعلى درجة</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ الخوارزمية vs البرنامج</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>الخوارزمية</b></th><th><b>البرنامج</b></th></tr>
+<tr><td>فكرة مجردة</td><td>تطبيق عملي</td></tr>
+<tr><td>وصف خطوات حل المشكلة</td><td>مكتوب بلغة برمجة وينفّذ الخوارزمية</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ معايير اختيار بنية البيانات</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>السؤال الحاكم</b></th></tr>
+<tr><td>وقت التنفيذ</td><td>هل نحتاج السرعة أم البساطة؟</td></tr>
+<tr><td>استهلاك الذاكرة</td><td>بعض البنى أقل استهلاكاً من غيرها</td></tr>
+<tr><td>سهولة العمليات</td><td>الإدراج، الحذف، البحث</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>📊 هياكل البيانات والخوارزميات — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>📦 البيانات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>معلومات خام: أرقام، كلمات، قياسات</li><li>وحدها لا تكفي ← تحتاج تنظيماً ومعالجة</li></ul></div></details>
+<details class="tg"><summary><span>🗄️ هياكل البيانات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تنظيم ← وصول سريع + ذاكرة فعالة + إضافة/حذف/بحث سهلة</li><li>Array • Linked List • Stack • Queue • Trees • Graphs</li></ul></div></details>
+<details class="tg"><summary><span>⚙️ الخوارزميات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>خطوات واضحة ومنظمة لحل المشكلات</li><li>الجيدة: وضوح • كفاءة • حتمية • عمومية</li></ul></div></details>
+<details class="tg"><summary><span>🔗 العلاقة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>بيانات ← هياكل ← خوارزميات ← برنامج</li><li>خوارزمية = فكرة مجردة \| برنامج = تنفيذ بلغة برمجة</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>عرّف كلاً من: البيانات، هياكل البيانات، الخوارزميات — واشرح العلاقة بينها بمثال درجات الطلاب.</li><li>اذكر خصائص الخوارزمية الجيدة الأربع.</li><li>عدّد ستة أمثلة شائعة على هياكل البيانات.</li><li>ما الفرق بين الخوارزمية والبرنامج؟</li><li>اذكر معايير اختيار بنية البيانات المناسبة الثلاثة.</li><li>ما خصائص بنية البيانات الجيدة؟ (أربع خصائص)</li><li>اكتب خطوات خوارزمية جمع ثلاثة أعداد.</li><li>اذكر فوائد تعلم هياكل البيانات والخوارزميات.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <span></span>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ds-t2.html">التالية: نظري 02 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

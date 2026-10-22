@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 03 — شوكلي وتحليل خط الحمل | GODLY MUST</title>
+<meta name="description" content="شوكلي وتحليل خط الحمل — Shockley & Load-Line Analysis · أسس الإلكترونيك">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">ELECTRONICS FUNDAMENTALS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 03</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">شوكلي وتحليل خط الحمل</h1>
+    <div class="doc__en mono" dir="ltr">Shockley & Load-Line Analysis</div>
+    <div class="doc__teach">👤 د. أكرم محمد حاتم · أسس الإلكترونيك</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📙</span><div class="callout__body"><p class="para"><b>المحاضرة الثالثة — نظري</b><br>Shockley Equation, Load-Line Analysis, Operating Point<br><i>د. أكرم محمد حاتم — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>معادلة شوكلي (Shockley Equation)</li><li>أنماط التشغيل — تبسيطات المعادلة</li><li>خط الحمل (Load Line)</li><li>نقطتا التشبع والقطع</li><li>نقطة التشغيل (Q-Point)</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ معادلة شوكلي (Shockley Equation)</h3>
+<p class="para">🌱 <b>التعريف:</b> صيغة رياضية عامة مُشتقة استناداً إلى مفاهيم فيزياء الحالة الصلبة، تُستخدم لوصف <b>المنحنى المميز للدايود شبه الموصل</b> في حالتي التحيز الأمامي والعكسي معاً. يُعطى التيار المار عبر الدايود بالصيغة:</p>
+<div class="math-tex math-tex--display">I = I_S \left( e^{\frac{V_D}{n V_T}} - 1 \right)</div>
+<p class="para">🌿 <b>الرموز:</b></p>
+<ul class="lst"><li><span class="math-tex">I</span> — التيار المار عبر الدايود</li><li><span class="math-tex">I_S</span> — تيار الإشباع للدايود</li><li><span class="math-tex">V_D</span> — جهد الدايود</li><li><span class="math-tex">n</span> — معامل المثالية للدايود، تتراوح قيمته عادة بين 1 و 2</li><li><span class="math-tex">V_T</span> — الجهد الحراري، يُحسب بالعلاقة <span class="math-tex">V_T = \frac{KT}{q}</span> حيث <span class="math-tex">K</span> ثابت بولتزمان، <span class="math-tex">T</span> درجة الحرارة بالكلفن، <span class="math-tex">q</span> شحنة الإلكترون</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ أنماط التشغيل — تبسيط المعادلة</h3>
+<p class="para">🌿 <b>التحيز الأمامي (</b><span class="math-tex">V_D &gt; 0</span><b>):</b> الحد الأسي <span class="math-tex">e^{V_D / nV_T}</span> يزداد بسرعة ويصبح أكبر بكثير من 1 ← تُبسَّط المعادلة إلى:</p>
+<div class="math-tex math-tex--display">I \approx I_S \, e^{\frac{V_D}{n V_T}}</div>
+<p class="para">🌿 <b>التحيز العكسي (</b><span class="math-tex">V_D &lt; 0</span><b>):</b> الحد الأسي يقترب بسرعة من الصفر ← تُبسَّط المعادلة إلى:</p>
+<div class="math-tex math-tex--display">I \approx -I_S</div>
+<p class="para">🌳 <b>المعنى الفيزيائي:</b> في الأمامي التيار ينمو أُسّياً مع الجهد، وفي العكسي يثبت عند تيار التشبع العكسي الضئيل — وهذا يطابق تماماً سلوك منحنى I-V من المحاضرة الثانية.</p>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ خط الحمل ونقطة التشغيل (Load Line)</h3>
+<p class="para">🌱 خط الحمل أداة تُستخدم لتحديد <b>التيار المار عبر جهاز شبه موصل</b> و<b>فرق الجهد بين طرفيه</b> بدقة — أي تحديد القيم الممكنة للتيار والجهد عند طرفي الدايود في دائرة محددة. الفائدة الكبرى ستظهر لاحقاً مع أجهزة أكثر تعقيداً كالترانزستورات.<br>🌿 في حالة الدايود، خط الحمل يمثل <b>المحل الهندسي لجميع قيم التيار والجهد</b> التي يمكن أن يتخذها الدايود في دائرة معينة. ولرسمه يجب أولاً إيجاد العلاقة بين فرق الجهد بين طرفي الدايود والتيار المار فيه — عبر تطبيق <b>قانون كيرشوف للجهد (KVL):</b> المجموع الجبري لفروق الجهد حول أي دائرة كهربائية مغلقة يساوي صفراً.<br>🌳 بتطبيق KVL على دائرة (مصدر <span class="math-tex">V_S</span> + مقاومة <span class="math-tex">R_S</span> + دايود على التوالي):</p>
+<div class="math-tex math-tex--display">V_S - I_D R_S - V_D = 0</div>
+<p class="para">ومنها <b>معادلة خط الحمل:</b></p>
+<div class="math-tex math-tex--display">I_D = \frac{V_S - V_D}{R_S}</div>
+<p class="para"><b>مثال عددي من المحاضرة:</b> إذا كان <span class="math-tex">V_S = 2</span> فولت و <span class="math-tex">R_S = 100\,\Omega</span>:</p>
+<div class="math-tex math-tex--display">I_D = \frac{2 - V_D}{100}</div>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ نقطتا التشبع والقطع</h3>
+<p class="para">🌱 بما أن معادلة خط الحمل تمثل خطاً مستقيماً ← يكفي تحديد نقطتين لرسمه (المحور العمودي = تيار الدايود <span class="math-tex">I_D</span>، والمحور الأفقي = جهد الدايود <span class="math-tex">V_D</span>):</p>
+<ul class="lst"><li><b>نقطة التشبع (Saturation Point):</b> ‏(<span class="math-tex">V_D = 0</span> V ، <span class="math-tex">I_D = 20</span> mA) — تمثل <b>أقصى تيار</b> يمكن أن يمر عبر الدايود في هذا التكوين للدائرة</li><li><b>نقطة القطع (Cutoff Point):</b> ‏(<span class="math-tex">V_D = 2</span> V ، <span class="math-tex">I_D = 0</span> mA) — تمثل <b>أقل تيار (صفر)</b> يمكن أن يمر عبر الدايود</li></ul>
+<p class="para">🌳 بعد تحديد النقطتين، يُرسم خط الحمل مباشرة فوق <b>منحنى خصائص الدايود</b> — وهو منحنى يمثل خاصية ذاتية للدايود بغض النظر عن الدائرة التي يعمل فيها.</p>
+<figure class="fig"><img src="assets/l3-loadline.png" alt="خط الحمل مرسوماً على منحنى خصائص الدايود — نقطة التشبع أعلى اليسار، نقطة القطع أسفل اليمين، ونقطة التشغيل Q عند التقاطع — من الملزمة" loading="lazy"><figcaption>خط الحمل مرسوماً على منحنى خصائص الدايود — نقطة التشبع أعلى اليسار، نقطة القطع أسفل اليمين، ونقطة التشغيل Q عند التقاطع — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ نقطة التشغيل (Q-Point)</h3>
+<p class="para">🌱 نقطة التشغيل عموماً تمثل نقطة محددة على خط الحمل تتحدد بناءً على قيم التيار والجهد عند حالة تشغيل معينة.<br>🌳 في حالة الدايود البلوري، نقطة التشغيل هي <b>نقطة التقاطع المشتركة بين خط الحمل ومنحنى خصائص الدايود</b>؛ وبإسقاط أعمدة على كلا المحورين نجد أن نقطة التشغيل في هذا المثال هي:</p>
+<div class="callout"><span class="callout__icon">🎯</span><div class="callout__body"><p class="para"><span class="math-tex">V_D = 0.75</span> V ، <span class="math-tex">I_D = 12.5</span> mA</p></div></div>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ أنماط تشغيل معادلة شوكلي</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>النمط</b></th><th><b>الشرط</b></th><th><b>سلوك الحد الأسي</b></th><th><b>المعادلة المبسطة</b></th></tr>
+<tr><td>تحيز أمامي</td><td><span class="math-tex">V_D &gt; 0</span></td><td>ينمو بسرعة ويتجاوز 1 بكثير</td><td><span class="math-tex">I \approx I_S \, e^{V_D / nV_T}</span></td></tr>
+<tr><td>تحيز عكسي</td><td><span class="math-tex">V_D &lt; 0</span></td><td>يقترب من الصفر</td><td><span class="math-tex">I \approx -I_S</span></td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ نقطتا خط الحمل (مثال: <span class="math-tex">V_S = 2</span>V ، <span class="math-tex">R_S = 100\Omega</span>)</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>النقطة</b></th><th><b>الإحداثيات</b></th><th><b>المعنى الفيزيائي</b></th></tr>
+<tr><td>التشبع Saturation</td><td><span class="math-tex">V_D = 0</span> ، <span class="math-tex">I_D = 20</span> mA</td><td>أقصى تيار ممكن في الدائرة</td></tr>
+<tr><td>القطع Cutoff</td><td><span class="math-tex">V_D = 2</span> V ، <span class="math-tex">I_D = 0</span></td><td>أقل تيار ممكن (صفر)</td></tr>
+<tr><td>التشغيل Q-Point</td><td><span class="math-tex">V_D = 0.75</span> V ، <span class="math-tex">I_D = 12.5</span> mA</td><td>تقاطع خط الحمل مع منحنى الدايود</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>📈 تحليل الدايود رياضياً — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🧮 معادلة شوكلي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li><span class="math-tex">I = I_S(e^{V_D/nV_T} - 1)</span></li><li><span class="math-tex">V_T = KT/q</span> — معامل المثالية <span class="math-tex">n</span> بين 1 و 2</li><li>أمامي ← <span class="math-tex">I \approx I_S e^{V_D/nV_T}</span> \| عكسي ← <span class="math-tex">I \approx -I_S</span></li></ul></div></details>
+<details class="tg"><summary><span>📏 خط الحمل</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>الأداة: KVL ← <span class="math-tex">V_S - I_D R_S - V_D = 0</span></li><li>المعادلة: <span class="math-tex">I_D = (V_S - V_D)/R_S</span></li><li>نقطة التشبع (أقصى تيار) + نقطة القطع (صفر تيار) ← يُرسم الخط بينهما</li></ul></div></details>
+<details class="tg"><summary><span>🎯 نقطة التشغيل Q</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تقاطع خط الحمل مع منحنى خصائص الدايود</li><li>مثال المحاضرة: 0.75V و 12.5mA</li><li>المنحنى خاصية ذاتية للدايود بغض النظر عن الدائرة</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>اكتب معادلة شوكلي واشرح كل رمز فيها بالتفصيل (بما فيه <span class="math-tex">V_T</span> ومكوناته).</li><li>بسّط معادلة شوكلي لحالتي التحيز الأمامي والعكسي مع تبرير كل تبسيط.</li><li>ما فائدة خط الحمل؟ ولماذا تكمن فائدته الكبرى في الترانزستورات؟</li><li>اشتق معادلة خط الحمل انطلاقاً من قانون كيرشوف للجهد لدائرة فيها مصدر ومقاومة ودايود على التوالي.</li><li>لدائرة فيها <span class="math-tex">V_S = 2</span>V و <span class="math-tex">R_S = 100\Omega</span>: احسب نقطتي التشبع والقطع، وعرّف كلاً منهما.</li><li>عرّف نقطة التشغيل Q-point وكيف تُحدد هندسياً في حالة الدايود البلوري.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="el-t2.html">→ السابقة: نظري 02</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="el-p1.html">التالية: عملي 01 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

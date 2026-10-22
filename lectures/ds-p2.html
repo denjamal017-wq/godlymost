@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 02 — البنّاءات ومعدّلات الوصول | GODLY MUST</title>
+<meta name="description" content="البنّاءات ومعدّلات الوصول — Constructors & Access Modifiers · هياكل البيانات">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">DATA STRUCTURES & ALGORITHMS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 02</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">البنّاءات ومعدّلات الوصول</h1>
+    <div class="doc__en mono" dir="ltr">Constructors & Access Modifiers</div>
+    <div class="doc__teach">👤 م.م عباس كامل + ب. صبا صباح · هياكل البيانات</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">🧪</span><div class="callout__body"><p class="para"><b>التجربة الثانية — مختبر</b><br>OOP Lab 2: Constructors &amp; Access Modifiers — البنّاءات ومعدّلات الوصول<br><i>م.م عباس كامل + ب. صبا صباح — المرحلة الثانية — قسم الأمن السيبراني</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس التجربة</h2>
+<ol class="lst lst--num"><li>مراجعة سريعة: ما هو الصنف؟</li><li>ما هو البنّاء (Constructor)؟</li><li>أنواع البنّاءات الأربعة</li><li>مؤشر this</li><li>معدّلات الوصول: public / private / protected</li><li>لماذا نستخدم معدّلات الوصول + Getters &amp; Setters</li><li>أمثلة عملية شاملة</li><li>التمارين المطلوبة</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ مراجعة: ما هو الصنف؟</h3>
+<p class="para">🌱 الصنف <b>مخطط (Blueprint)</b> يجمع البيانات والدوال معاً في وحدة واحدة:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class Student {
+    string name;            // بيانات
+    int age;
+    void display_info();    // دوال
+    bool is_adult();
+};</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ ما هو البنّاء (Constructor)؟</h3>
+<p class="para">🌱 البنّاء <b>دالة عضو خاصة تُستدعى تلقائياً عند إنشاء كائن جديد</b> — وظيفتها تهيئة بيانات الكائن الأولية.<br>🌿 قواعده: اسمه = <b>نفس اسم الصنف</b> تماماً • <b>بدون نوع إرجاع</b> • يُنفَّذ مرة واحدة عند الإنشاء.<br>🌳 <b>تشبيه المحاضرة:</b> البنّاء = <b>خط الإنتاج في مصنع السيارات</b> الذي يجمع الأجزاء ويجهّز السيارة ← الكائن = السيارة الجاهزة الخارجة من المصنع.</p>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ أنواع البنّاءات</h3>
+<h4 class="doc-h4">🔹 البنّاء الافتراضي (Default Constructor)</h4>
+<p class="para">🌱 بدون معاملات — يعطي قيماً أولية ثابتة:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class Student {
+    string name;
+    int age;
+public:
+    Student() {            // بنّاء افتراضي
+        name = &quot;Unknown&quot;;
+        age = 0;
+    }
+};</code></pre>
+<h4 class="doc-h4">🔹 البنّاء المُعامَلاتي (Parameterized Constructor)</h4>
+<p class="para">🌿 يستقبل معاملات لتهيئة الكائن بقيم مخصصة:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class Student {
+    string name;
+    int age;
+public:
+    Student(string n, int a) {   // بنّاء بمعاملات
+        name = n;
+        age = a;
+    }
+};</code></pre>
+<h4 class="doc-h4">🔹 التحميل الزائد للبنّاءات (Constructor Overloading)</h4>
+<p class="para">🌳 تعريف <b>عدة بنّاءات بنفس الاسم بمعاملات مختلفة</b> — والمترجم يختار المناسب حسب الاستدعاء. <b>تشبيه المحاضرة:</b> ماكينة القهوة ← زر افتراضي يعطي قهوة سادة، وأزرار مخصصة تحدد الحجم والسكر والحليب:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class Student {
+    string name;
+    int age;
+public:
+    Student() { name = &quot;Unknown&quot;; age = 0; }         // افتراضي
+    Student(string n, int a) { name = n; age = a; }  // بمعاملات
+};</code></pre>
+<h4 class="doc-h4">🔹 بنّاء بمعاملات افتراضية (Default Parameters)</h4>
+<p class="para">🌿 قيم افتراضية للمعاملات تُستخدم عند عدم تمريرها:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class TemperatureConverter {
+    double fahrenheit;
+public:
+    TemperatureConverter(double f = 32) {   // 32 قيمة افتراضية
+        fahrenheit = f;
+    }
+};</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ مؤشر this</h3>
+<p class="para">🌱 المؤشر this <b>يشير إلى الكائن الحالي</b> — يُستخدم للتمييز بين بيانات العضو ومعاملات الدالة عند تشابه الأسماء:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class BankAccount {
+    double balance;
+public:
+    void setBalance(double balance) {
+        this-&gt;balance = balance;   // this-&gt;balance هو عضو الصنف
+    }
+};</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ معدّلات الوصول (Access Modifiers)</h3>
+<p class="para">🌱 تتحكم بمن يستطيع الوصول إلى بيانات الصنف ودواله — ثلاثة أنواع:</p>
+<ul class="lst"><li><b>public (عام):</b> متاح للجميع — من داخل الصنف وخارجه وأي مكان بالبرنامج</li><li><b>private (خاص):</b> داخل الصنف فقط — للبيانات الحساسة (كلمات المرور، الأرصدة)</li><li><b>protected (محمي):</b> داخل الصنف والأصناف المشتقة منه فقط (مع الوراثة)</li></ul>
+<p class="para">🌿 <b>تشبيه المنزل من المحاضرة:</b> النوع public = باب الشارع الذي يستخدمه الجميع • والنوع private = غرفة نومك الخاصة بك وحدك • والنوع protected = غرف مخصصة لأفراد العائلة فقط<br>🌳 <b>جدول الوصول:</b></p>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعدّل</b></th><th><b>نفس الصنف</b></th><th><b>الصنف المشتق</b></th><th><b>خارج الصنف</b></th></tr>
+<tr><td>public</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>protected</td><td>✅</td><td>✅</td><td>❌</td></tr>
+<tr><td>private</td><td>✅</td><td>❌</td><td>❌</td></tr>
+</table></div>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ لماذا نستخدم معدّلات الوصول؟ + نمط Getters &amp; Setters</h3>
+<p class="para">🌿 <b>الأسباب الأربعة من المحاضرة:</b> الحماية (Security) • التحكم (Control) • منع سوء الاستخدام • سهولة الصيانة<br>🌳 <b>نمط Getters &amp; Setters:</b> البيانات private + دوال عامة للقراءة والكتابة مع التحقق:</p>
+<pre class="code" dir="ltr"><code class="lang-c++">class BankAccount {
+    double balance;                  // خاص — محمي
+public:
+    double getBalance() {            // Getter
+        return balance;
+    }
+    void setBalance(double amount) { // Setter مع تحقق
+        if (amount &gt; 0)
+            balance = amount;
+    }
+};</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ أمثلة عملية شاملة من المحاضرة</h3>
+<ul class="lst"><li><b>نظام قاعدة بيانات الطلاب (Student Database System):</b> يجمع أنواع البنّاءات مع التغليف</li><li><b>نظام إدارة المكتبة (Library Management System):</b> صنف Book مع دوال borrow/return تتحكم بحالة الكتاب</li><li><b>محلل الحرارة (Temperature Analyzer):</b> وصول للقراءة فقط مع تحقق من صحة القيم</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">8️⃣ التمارين المطلوبة</h3>
+<ol class="lst lst--num"><li>صنف <b>Rectangle</b> لحساب المساحة</li><li>صنف <b>Circle</b></li><li>صنف <b>Employee</b> لكشف الرواتب (Payroll)</li><li>صنف <b>ATM</b> مع حماية رمز PIN</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ أنواع البنّاءات الأربعة</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>النوع</b></th><th><b>الوصف</b></th><th><b>مثال الاستدعاء</b></th></tr>
+<tr><td>افتراضي Default</td><td>بلا معاملات — قيم أولية ثابتة</td><td>Student s;</td></tr>
+<tr><td>بمعاملات Parameterized</td><td>معاملات لتهيئة مخصصة</td><td>Student s(&quot;Ali&quot;, 20);</td></tr>
+<tr><td>تحميل زائد Overloading</td><td>عدة بنّاءات بمعاملات مختلفة بالصنف الواحد</td><td>الافتراضي + المُعامَلاتي معاً</td></tr>
+<tr><td>معاملات افتراضية</td><td>قيم تُستخدم عند غياب المعامل</td><td>TemperatureConverter t; ← f = 32</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ public vs private vs protected</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>public</b></th><th><b>protected</b></th><th><b>private</b></th></tr>
+<tr><td>نفس الصنف</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>الصنف المشتق</td><td>✅</td><td>✅</td><td>❌</td></tr>
+<tr><td>خارج الصنف</td><td>✅</td><td>❌</td><td>❌</td></tr>
+<tr><td>الاستخدام</td><td>واجهات للجميع</td><td>وراثة فقط</td><td>بيانات حساسة</td></tr>
+<tr><td>تشبيه المنزل</td><td>باب الشارع</td><td>غرف العائلة</td><td>غرفة نومك</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>🧪 البنّاءات ومعدّلات الوصول — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>🏭 البنّاء Constructor</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>استدعاء تلقائي عند إنشاء الكائن ← تهيئة البيانات</li><li>اسمه = اسم الصنف • بلا نوع إرجاع • مرة واحدة</li><li>التشبيه: خط إنتاج المصنع ← السيارة الجاهزة</li></ul></div></details>
+<details class="tg"><summary><span>🔢 الأنواع الأربعة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>افتراضي: بلا معاملات ← Unknown / 0</li><li>بمعاملات: قيم مخصصة ← Student(&quot;Ali&quot;, 20)</li><li>تحميل زائد: عدة بنّاءات ← ماكينة القهوة</li><li>معاملات افتراضية: f = 32</li></ul></div></details>
+<details class="tg"><summary><span>👉 مؤشر this</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>يشير للكائن الحالي</li><li>يميز عضو الصنف عن معامل الدالة</li></ul></div></details>
+<details class="tg"><summary><span>🔐 معدّلات الوصول</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>public: للجميع (باب الشارع)</li><li>private: الصنف فقط (غرفة نومك) ← Getters/Setters مع تحقق</li><li>protected: الصنف + المشتقات (غرف العائلة)</li><li>لماذا؟ حماية • تحكم • منع سوء استخدام • صيانة</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>ما هو البنّاء؟ واذكر قواعده الثلاث (الاسم، الإرجاع، التنفيذ).</li><li>قارن بين البنّاء الافتراضي والمُعامَلاتي مع مثال كود لكل منهما.</li><li>ما التحميل الزائد للبنّاءات؟ واشرحه بتشبيه ماكينة القهوة.</li><li>ما فائدة المعاملات الافتراضية في البنّاء؟ (مثال TemperatureConverter)</li><li>ما مؤشر this ومتى نحتاجه؟ اكتب مثال BankAccount.</li><li>املأ جدول الوصول: أي معدّل يسمح بالوصول من خارج الصنف؟ وأيها يسمح للمشتقات فقط؟</li><li>لماذا نجعل البيانات private ونوفّر Getters و Setters؟ اكتب مثالاً بكود.</li><li>صمّم صنف ATM يحمي رمز PIN (تمرين المحاضرة) — حدد البيانات الخاصة والدوال العامة المطلوبة.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ds-p1.html">→ السابقة: عملي 01</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <span></span>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

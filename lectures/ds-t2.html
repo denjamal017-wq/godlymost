@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظري 02 — الخوارزميات | GODLY MUST</title>
+<meta name="description" content="الخوارزميات — Algorithmics · هياكل البيانات">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">DATA STRUCTURES & ALGORITHMS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">نظري 02</span><span class="doc__type doc__type--theory">نظري</span></div>
+    <h1 class="doc__title">الخوارزميات</h1>
+    <div class="doc__en mono" dir="ltr">Algorithmics</div>
+    <div class="doc__teach">👤 م.م عباس كامل · هياكل البيانات</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">📗</span><div class="callout__body"><p class="para"><b>المحاضرة الثانية — نظري</b><br>Algorithmics — الخوارزميات: الخصائص والفئات والتصميم<br><i>م.م عباس كامل — المرحلة الثانية</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس المحاضرة</h2>
+<ol class="lst lst--num"><li>أهداف المحاضرة</li><li>تعريف الخوارزمية</li><li>خصائص الخوارزمية الخمس</li><li>فئات الخوارزميات: التسلسل، الاختيار، التكرار</li><li>مراحل تصميم الخوارزمية الخمس</li><li>تطبيق الخوارزميات على مشكلات الحياة والبرمجة</li><li>فوائد تطبيق الخوارزميات</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ أهداف المحاضرة</h3>
+<ol class="lst lst--num"><li>تعريف الطلاب بمفهوم الخوارزميات وأهميتها</li><li>شرح فئات الخوارزميات (Categories of Algorithm)</li><li>تقديم أمثلة عملية بسيطة لتوضيح كيفية عمل الخوارزميات</li><li>شرح مراحل تصميم الخوارزمية</li><li>تطبيق الخوارزميات على مشكلات حياتية وبرمجية بسيطة</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ تعريف الخوارزمية</h3>
+<p class="para">🌱 الخوارزمية عملية تتألف من <b>خطوات متسلسلة (Step by Step)</b> لحل مشكلة ما، حيث تمثل كل خطوة مهمة مرحلية، وتتكون من <b>عدد محدود من الخطوات</b> التي تؤدي إلى حل المشكلة.</p>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ خصائص الخوارزمية</h3>
+<p class="para">🌿 الخصائص الأساسية الخمس:</p>
+<ol class="lst lst--num"><li><b>المدخلات والمخرجات (Input-Output):</b> تتلقى الخوارزمية مدخلاً واحداً أو أكثر (أو لا تتلقى أي مدخلات) وتنتج المخرجات المطلوبة — وهي السمة الأساسية</li><li><b>التناهي (Finiteness):</b> يجب أن تنتهي بعدد محدد (قابل للعد) من الخطوات</li><li><b>الوضوح/التحديد (Definiteness):</b> يجب صياغة كل خطوة بوضوح ودون أي غموض</li><li><b>الفعالية (Effectiveness):</b> يجب أن تكون كل خطوة قابلة للتحويل إلى تعليمة برمجية</li><li><b>العمومية (Generality):</b> تعمل على أي مجموعة من المدخلات وتنتج المخرجات المطلوبة — لا تقتصر على قيمة مدخلة واحدة</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ فئات الخوارزميات الثلاث</h3>
+<p class="para">🌱 بناءً على أنواع الخطوات المختلفة في الخوارزمية، تُقسم إلى ثلاث فئات: <b>التسلسل</b> و<b>الاختيار</b> و<b>التكرار</b>.</p>
+<h4 class="doc-h4">🔹 التسلسل (Sequence)</h4>
+<p class="para">🌿 الخطوات تُنفَّذ <b>بالتتابع واحدة تلو الأخرى دون تخطي أي خطوة</b>؛ تسلسل بسيط وسهل الفهم؛ كل تعليمة تُنفَّذ لعدم وجود إجراءات اختيار أو تفرع شرطي.<br>🌳 <b>مثال — جمع رقمين:</b></p>
+<pre class="code" dir="ltr"><code class="lang-plain text">Step 1: start
+Step 2: read a, b
+Step 3: Sum = a + b
+Step 4: write Sum
+Step 5: stop</code></pre>
+<h4 class="doc-h4">🔹 الاختيار (Selection)</h4>
+<p class="para">🌿 الخوارزميات التسلسلية لا تكفي للمشكلات التي تتضمن <b>قرارات وشروطاً</b> ← نلجأ لنوع الاختيار لحل المشكلات التي تستلزم اتخاذ قرار أو اختيار بديل.<br>🌳 الصيغة العامة: إذا تحقق الشرط تُنفَّذ العبارة 1، وإلا تُنفَّذ العبارة 2:</p>
+<pre class="code" dir="ltr"><code class="lang-plain text">if (condition)
+    Statement-1;
+else
+    Statement-2;</code></pre>
+<p class="para"><b>مثال 1 — أهلية التصويت:</b> اقرأ العمر ← إذا كان age \&gt;= 18 اطبع &quot;مؤهل للتصويت&quot; وإلا اطبع &quot;غير مؤهل&quot; ← توقف<br><b>مثال 2 — الأكبر بين عددين:</b> اقرأ a و b ← إذا a \&gt; b اطبع &quot;a أكبر من b&quot; وإلا اطبع &quot;b أكبر من a&quot; ← توقف</p>
+<h4 class="doc-h4">🔹 التكرار (Iteration)</h4>
+<p class="para">🌿 تُستخدم لحل المسائل التي تتضمن <b>تكرار العبارات</b> — تُكرَّر مجموعة محددة من العبارات عدد n من المرات.<br>🌳 <b>مثال — جمع أرقام عدد:</b></p>
+<pre class="code" dir="ltr"><code class="lang-plain text">Step 1: start
+Step 2: read n
+Step 3: repeat step 4 until n &gt; 0
+Step 4: (a) r = n mod 10
+        (b) s = s + r
+        (c) n = n / 10
+Step 5: write s
+Step 6: stop</code></pre>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ مراحل تصميم الخوارزمية</h3>
+<p class="para">🌿 المراحل الخمس بالتسلسل:</p>
+<ol class="lst lst--num"><li><b>فهم المشكلة:</b> تحديد المدخلات والمخرجات والقيود</li><li><b>تحليل المشكلة:</b> تقسيمها إلى مشكلات فرعية أصغر</li><li><b>تصميم الخوارزمية:</b> كتابة تعليمات واضحة ومفصلة خطوة بخطوة</li><li><b>تمثيل الخوارزمية:</b> استخدام الكود الزائف (Pseudocode) أو المخططات الانسيابية (Flowcharts)</li><li><b>اختبار الخوارزمية:</b> التحقق من صحتها باستخدام مدخلات تجريبية</li></ol>
+<figure class="fig"><img src="assets/ds-algo-stages.png" alt="مخطط مراحل تصميم الخوارزمية بالتسلسل — من الملزمة" loading="lazy"><figcaption>مخطط مراحل تصميم الخوارزمية بالتسلسل — من الملزمة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ تطبيق الخوارزميات على مشكلات الحياة والبرمجة</h3>
+<p class="para">🌱 <b>المفهوم:</b> الخوارزمية مجموعة خطوات منطقية ومرتبة لحل مشكلة محددة — تُطبق في الحياة اليومية أو البرمجة لحل المشكلات بطريقة منظمة.<br>🌿 <b>أمثلة حياتية:</b><br><b>إعداد كوب شاي:</b> 1) اغلِ الماء 2) ضع الشاي في الكوب 3) صُب الماء المغلي فوق الشاي 4) أضف السكر أو الحليب حسب الرغبة 5) قلّب الشاي — اتباع الخطوات بالترتيب يعطي النتيجة نفسها دائماً<br><b>ترتيب الحقيبة المدرسية:</b> 1) ضع الكتب الثقيلة أولاً 2) الأقلام والدفاتر الصغيرة فوق الكتب 3) الزجاجة والوجبات في الجيب الجانبي 4) أغلق الحقيبة ← تعبئة عملية ومتوازنة<br>🌳 <b>أمثلة برمجية:</b><br><b>إيجاد الأكبر من عددين:</b> اقرأ A ← اقرأ B ← إذا A \&gt; B اطبع &quot;A هو الأكبر&quot; وإلا اطبع &quot;B هو الأكبر&quot;<br><b>جمع الأعداد من 1 إلى N:</b> اقرأ N ← اجعل sum = 0 ← لكل عدد i من 1 إلى N: sum = sum + i ← اطبع sum</p>
+<hr class="rule">
+<h3 class="doc-h3">7️⃣ فوائد تطبيق الخوارزميات</h3>
+<ul class="lst"><li>يساعد على تنظيم الأفكار وحل المشكلات بشكل منهجي</li><li>يقلل من الأخطاء من خلال تحديد خطوات واضحة</li><li>يجعل عملية حل المشكلات أسرع وأكثر كفاءة</li><li>يسهّل تحويل الحلول الواقعية إلى برنامج حاسوب</li></ul>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ فئات الخوارزميات الثلاث</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>الفئة</b></th><th><b>الاستخدام</b></th><th><b>الفكرة</b></th><th><b>مثال المحاضرة</b></th></tr>
+<tr><td>التسلسل Sequence</td><td>مشكلات بلا قرارات</td><td>تنفيذ متتابع بلا تخطٍّ أو تفرع</td><td>جمع رقمين</td></tr>
+<tr><td>الاختيار Selection</td><td>مشكلات القرار والشروط</td><td>if / else — عبارة عند التحقق وأخرى عند عدمه</td><td>أهلية التصويت • الأكبر بين عددين</td></tr>
+<tr><td>التكرار Iteration</td><td>مشكلات تكرار العبارات</td><td>تكرار عبارات محددة n مرة</td><td>جمع أرقام عدد (mod 10)</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ خصائص الخوارزمية الخمس</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>الخاصية</b></th><th><b>المعنى</b></th></tr>
+<tr><td>المدخلات والمخرجات</td><td>0 أو أكثر من المدخلات ← مخرجات مطلوبة (السمة الأساسية)</td></tr>
+<tr><td>التناهي Finiteness</td><td>تنتهي بعدد محدود قابل للعد من الخطوات</td></tr>
+<tr><td>الوضوح Definiteness</td><td>كل خطوة واضحة بلا غموض</td></tr>
+<tr><td>الفعالية Effectiveness</td><td>كل خطوة قابلة للتحويل إلى تعليمة برمجية</td></tr>
+<tr><td>العمومية Generality</td><td>تعمل على أي مجموعة مدخلات — لا تقتصر على قيمة واحدة</td></tr>
+</table></div>
+<h3 class="doc-h3">⚖️ مراحل التصميم الخمس</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>#</b></th><th><b>المرحلة</b></th><th><b>الوصف</b></th></tr>
+<tr><td>1</td><td>فهم المشكلة</td><td>تحديد المدخلات والمخرجات والقيود</td></tr>
+<tr><td>2</td><td>تحليل المشكلة</td><td>تقسيمها إلى مشكلات فرعية أصغر</td></tr>
+<tr><td>3</td><td>تصميم الخوارزمية</td><td>تعليمات واضحة خطوة بخطوة</td></tr>
+<tr><td>4</td><td>تمثيل الخوارزمية</td><td>كود زائف Pseudocode أو مخطط انسيابي</td></tr>
+<tr><td>5</td><td>اختبار الخوارزمية</td><td>التحقق من صحتها بمدخلات تجريبية</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>⚙️ الخوارزميات — المحور المركزي</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>📜 التعريف والخصائص</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>خطوات متسلسلة محدودة العدد ← حل مشكلة</li><li>مدخلات/مخرجات • تناهٍ • وضوح • فعالية • عمومية</li></ul></div></details>
+<details class="tg"><summary><span>🔀 الفئات الثلاث</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>تسلسل: متتابع بلا تفرع ← جمع رقمين</li><li>اختيار: if/else ← التصويت، الأكبر بين عددين</li><li>تكرار: عبارات × n ← جمع أرقام العدد</li></ul></div></details>
+<details class="tg"><summary><span>🏗️ مراحل التصميم</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>فهم ← تحليل ← تصميم ← تمثيل (Pseudocode/Flowchart) ← اختبار</li></ul></div></details>
+<details class="tg"><summary><span>🌍 التطبيقات</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>حياتية: شاي + حقيبة مدرسية</li><li>برمجية: الأكبر من عددين + جمع 1..N</li><li>فوائد: تنظيم أفكار • تقليل أخطاء • سرعة وكفاءة • تحويل لبرنامج</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>عرّف الخوارزمية، واذكر خصائصها الخمس شارحاً كل خاصية.</li><li>ما الفئات الثلاث للخوارزميات؟ ومتى نستخدم كل فئة؟</li><li>اكتب الصيغة العامة لعبارة الاختيار واشرح عملها.</li><li>اكتب خوارزمية &quot;أهلية التصويت&quot; خطوة بخطوة.</li><li>اكتب خوارزمية جمع أرقام عدد (باستخدام mod 10) وحدد فئتها.</li><li>عدّد مراحل تصميم الخوارزمية الخمس مع وصف كل مرحلة.</li><li>أعط مثالاً حياتياً لخوارزمية (كإعداد الشاي) موضحاً خطواته.</li><li>اكتب خوارزمية لحساب مجموع الأعداد من 1 إلى N.</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="ds-t1.html">→ السابقة: نظري 01</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <a class="btn btn--solid" href="ds-t3.html">التالية: نظري 03 ←</a>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>

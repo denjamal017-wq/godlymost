@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عملي 03 — مقوم نصف الموجة | GODLY MUST</title>
+<meta name="description" content="مقوم نصف الموجة — Exp 3: Half-Wave Rectifier · أسس الإلكترونيك">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="docpage">
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="nav__logo mono" href="../index.html" dir="ltr">GODLY&nbsp;MUST<sup>®</sup></a>
+  <nav class="nav__links"><a href="../index.html#subjects">← الأرشيف</a></nav>
+  <span class="nav__cta mono docpage__subj" dir="ltr">ELECTRONICS FUNDAMENTALS</span>
+</header>
+<main>
+  <header class="doc__head">
+    <div class="doc__meta mono"><span class="doc__code">عملي 03</span><span class="doc__type doc__type--lab">مختبر</span></div>
+    <h1 class="doc__title">مقوم نصف الموجة</h1>
+    <div class="doc__en mono" dir="ltr">Exp 3: Half-Wave Rectifier</div>
+    <div class="doc__teach">👤 م. زهراء عبد المهدي + م. عقيل علي · أسس الإلكترونيك</div>
+  </header>
+  <article class="doc">
+<div class="callout"><span class="callout__icon">⚗️</span><div class="callout__body"><p class="para"><b>التجربة الثالثة — مختبر</b><br>Exp 3: Half-Wave Rectifier — مقوم نصف الموجة<br><i>د. أكرم محمد حاتم + م. زهراء عبد المهدي + م. عقيل علي</i></p></div></div>
+<h2 class="doc-h2">📑 فهرس التجربة</h2>
+<ol class="lst lst--num"><li>الهدف والمكونات</li><li>النظرية: فكرة التقويم</li><li>عمل الدائرة — النصف الموجب</li><li>عمل الدائرة — النصف السالب</li><li>النتيجة: جهد DC نابض</li><li>خطوات التنفيذ في NI Multisim</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📝 الشرح التفصيلي</h2>
+<h3 class="doc-h3">1️⃣ الهدف والمكونات</h3>
+<p class="para">🎯 <b>الأهداف:</b></p>
+<ol class="lst lst--num"><li>بناء دائرة مقوم نصف الموجة (Half-Wave Rectifier)</li><li>قياس/رسم شكل موجة الدخل والخرج</li><li>إيجاد القيمة العظمى (Peak) والقيمة المتوسطة (Average) لإشارة الخرج</li></ol>
+<p class="para">🛠️ <b>المكونات والمعدات:</b></p>
+<ol class="lst lst--num"><li>مصدر طاقة AC (مولد إشارة Function Generator) أو محول قياسي</li><li>راسم إشارة ثنائي القناة (Two-Channel Oscilloscope)</li><li>لوحة تجارب (Breadboard) + دايود شبه موصل + مقاومة 1KΩ</li></ol>
+<hr class="rule">
+<h3 class="doc-h3">2️⃣ النظرية: فكرة التقويم</h3>
+<p class="para">🌱 بسبب قدرة الدايود على <b>توصيل التيار باتجاه واحد وحجبه بالاتجاه الآخر</b>، تُستخدم الدايودات في دوائر تُسمى <b>المقوّمات (Rectifiers)</b> تحوّل جهد AC إلى جهد DC.<br>🌿 المقومات موجودة في <b>جميع مصادر تغذية DC</b> التي تعمل من مصدر جهد AC.<br>🌳 في الدائرة (الشكل 1): دايود موصول بمصدر AC يزوّد جهد الدخل <span class="math-tex">V_{in}</span> إلى مقاومة حمل <span class="math-tex">R_L</span> — مشكّلاً <b>مقوّم نصف موجة</b>.</p>
+<figure class="fig"><img src="assets/p3-circuit.png" alt="دائرة مقوم نصف الموجة — من ملزمة التجربة" loading="lazy"><figcaption>دائرة مقوم نصف الموجة — من ملزمة التجربة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">3️⃣ عمل الدائرة — النصف الموجب من الدورة</h3>
+<p class="para">🌿 عندما يصبح جهد الدخل الجيبي <b>موجباً</b>:</p>
+<ul class="lst"><li>الدايود D يكون <b>منحازاً أمامياً</b> (Forward-Biased)</li><li>يوصّل تياراً عبر مقاومة الحمل <span class="math-tex">R_L</span> (شكل 2)</li><li>التيار ينتج <b>جهد خرج عبر </b><span class="math-tex">R_L</span> له نفس شكل نصف الموجة الموجبة</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">4️⃣ عمل الدائرة — النصف السالب من الدورة</h3>
+<p class="para">🌿 عندما يصبح جهد الدخل <b>سالباً</b> خلال النصف الثاني من دورته:</p>
+<ul class="lst"><li>الدايود يكون <b>منحازاً عكسياً</b> (Reverse-Biased)</li><li><b>لا يمر تيار</b> ← الجهد عبر مقاومة الحمل <span class="math-tex">R_L</span> = <b>صفر</b> (شكل 3)</li></ul>
+<hr class="rule">
+<h3 class="doc-h3">5️⃣ النتيجة: جهد DC نابض</h3>
+<p class="para">🌳 <b>الحصيلة:</b> فقط أنصاف الدورات الموجبة من جهد الدخل AC تظهر عبر الحمل؛ وبما أن الخرج <b>لا يغيّر قطبيته</b> ← فهو <b>جهد DC نابض (Pulsating DC)</b> كما في شكل 4.</p>
+<figure class="fig"><img src="assets/p3-waves.png" alt="موجة الدخل (جيبية كاملة) وموجة الخرج (أنصاف موجبة فقط) — من ملزمة التجربة" loading="lazy"><figcaption>موجة الدخل (جيبية كاملة) وموجة الخرج (أنصاف موجبة فقط) — من ملزمة التجربة</figcaption></figure>
+<hr class="rule">
+<h3 class="doc-h3">6️⃣ خطوات التنفيذ في NI Multisim</h3>
+<ol class="lst lst--num"><li>افتح <b>NI Multisim 14.2</b></li><li>من (Place Source) اختر <b>AC_Voltage</b> وضعه، واختر أيضاً <b>Ground</b></li><li>اجعل المصدر <b>5 Vpk</b> و <b>50Hz</b></li><li>من (Place Diode) اختر <b>Diodes_Virtual</b> ثم <b>Diode</b> وضعه</li><li>من (Place Basic) اختر <b>Resistor</b> بقيمة <b>1.0 KΩ</b> وضعه</li><li>صِل جميع الأجزاء بالأسلاك</li><li>من الجانب الأيمن اختر الجهاز الرابع — <b>راسم الإشارة (Oscilloscope)</b>: القناة 1 (Channel 1) على المصدر، والقناة 2 (Channel 2) على طرفي المقاومة</li><li>غيّر لون أسلاك القناة 1: نقرة يمين ← Segment Color ← اختر اللون الذي تريده</li><li>شغّل الدائرة، ثم افتح راسم الإشارة واختر <b>AC</b> للقناة 1 و <b>DC</b> للقناة 2، واختر خيار <b>Single</b> في Trigger</li><li>لاحظ شكل الموجة في الدخل والخرج، ارسمها، حدد قيمة جهد الخرج وسجّلها في الجدول، ثم غيّر جهد المصدر إلى <b>10</b> و <b>15</b> وسجّل القيم أيضاً</li></ol>
+<hr class="rule">
+<h2 class="doc-h2">📊 الجداول المقارنة</h2>
+<h3 class="doc-h3">⚖️ سلوك الدائرة خلال دورة الدخل</h3>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th><b>المعيار</b></th><th><b>النصف الموجب</b></th><th><b>النصف السالب</b></th></tr>
+<tr><td>حالة الدايود</td><td>تحيز أمامي</td><td>تحيز عكسي</td></tr>
+<tr><td>التيار عبر <span class="math-tex">R_L</span></td><td>يسري</td><td>صفر</td></tr>
+<tr><td>جهد الخرج عبر <span class="math-tex">R_L</span></td><td>يتبع شكل نصف الموجة الموجبة</td><td>صفر</td></tr>
+</table></div>
+<hr class="rule">
+<h2 class="doc-h2">🗺️ الخريطة الذهنية</h2>
+<details class="tg"><summary><span>⚗️ Exp 3 — مقوم نصف الموجة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><details class="tg"><summary><span>💡 الفكرة</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>الدايود يوصّل باتجاه ويحجب بالآخر ← أساس المقوّمات</li><li>كل مصدر DC يعمل من AC فيه مقوّم</li></ul></div></details>
+<details class="tg"><summary><span>🔄 العمل</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>نصف موجب ← أمامي ← تيار عبر <span class="math-tex">R_L</span> ← خرج يتبع الموجة</li><li>نصف سالب ← عكسي ← لا تيار ← خرج صفر</li><li>الناتج: <b>DC نابض</b> (أنصاف موجبة فقط، قطبية ثابتة)</li></ul></div></details>
+<details class="tg"><summary><span>🖥️ Multisim</span><span class="tg__plus" aria-hidden="true">+</span></summary><div class="tg__body"><ul class="lst"><li>مصدر 5 Vpk / 50Hz ← ثم 10 و 15</li><li>دايود + مقاومة 1KΩ</li><li>راسم إشارة: قناة 1 على المصدر / قناة 2 على المقاومة</li><li>المطلوب قياسه: القيمة العظمى والمتوسطة للخرج</li></ul></div></details></div></details>
+<hr class="rule">
+<h2 class="doc-h2">❓ أسئلة متوقعة</h2>
+<ol class="lst lst--num"><li>ما أهداف التجربة الثالثة الثلاثة؟ وما المكونات المطلوبة؟</li><li>لماذا يصلح الدايود لدوائر التقويم؟ (اربط الإجابة بخاصية التحيز)</li><li>اشرح ما يحدث في دائرة مقوم نصف الموجة خلال النصف الموجب من دورة الدخل.</li><li>اشرح ما يحدث خلال النصف السالب، ولماذا يكون جهد الخرج صفراً؟</li><li>لماذا يُسمى خرج هذه الدائرة &quot;جهد DC نابض&quot;؟</li><li>في خطوات Multisim: أين توصَل قناتا راسم الإشارة؟ ولماذا تُضبط القناة 1 على AC والقناة 2 على DC؟</li></ol>
+  </article>
+  <nav class="doc__pager">
+    <a class="btn btn--solid" href="el-p2.html">→ السابقة: عملي 02</a>
+    <a class="btn" href="../index.html#subjects">كل المحاضرات</a>
+    <span></span>
+  </nav>
+</main>
+<footer class="footer footer--mini">
+  <div class="footer__bar mono">
+    <span>© 2026 GODLY MUST</span>
+    <span>صُنع بحب في العراق 🇮🇶</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-tex').forEach(function (el) {
+    katex.render(el.textContent, el, { displayMode: el.classList.contains('math-tex--display'), throwOnError: false });
+  });
+});
+</script>
+</body>
+</html>
